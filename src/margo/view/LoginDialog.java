@@ -95,6 +95,22 @@ public class LoginDialog extends javax.swing.JDialog {
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
+      if(Login.authenticate(getUsername(), getPassword()) != null) {
+      /*JOptionPane.showMessageDialog(LoginDialog.this, 
+              "Hi " + getUsername() + "! You have successfully logged in.",
+              "Login",
+              JOptionPane.INFORMATION_MESSAGE);*/
+      succeeded = true;
+      this.dispose();
+    } else {
+      JOptionPane.showMessageDialog(LoginDialog.this,
+              "Invalid username or password",
+              "Login",
+              JOptionPane.ERROR_MESSAGE);
+      LoginField.setText("");
+      PasswordField.setText("");
+      succeeded = false;
+    }
   }//GEN-LAST:event_jButton1ActionPerformed
     
   public String getUsername() {
@@ -108,22 +124,7 @@ public class LoginDialog extends javax.swing.JDialog {
   }                                   
 
   private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-     if(Login.authenticate(getUsername(), getPassword()) != null) {
-      JOptionPane.showMessageDialog(LoginDialog.this, 
-              "Hi " + getUsername() + "! You have successfully logged in.",
-              "Login",
-              JOptionPane.INFORMATION_MESSAGE);
-      succeeded = true;
-      this.dispose();
-    } else {
-      JOptionPane.showMessageDialog(LoginDialog.this,
-              "Invalid username or password",
-              "Login",
-              JOptionPane.ERROR_MESSAGE);
-      LoginField.setText("");
-      PasswordField.setText("");
-      succeeded = false;
-    }
+     
   }//GEN-LAST:event_jButton1MouseClicked
 
   /**
