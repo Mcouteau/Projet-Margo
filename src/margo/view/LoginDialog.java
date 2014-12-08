@@ -20,8 +20,10 @@ public class LoginDialog extends javax.swing.JDialog {
    * Creates new form LoginDialog
    */
   public LoginDialog(java.awt.Frame parent, boolean modal) {
-    super(parent, modal);
+    super(parent, modal); 
+    
     initComponents();
+    getRootPane().setDefaultButton(jButton1);
   }
 
   /**
@@ -93,18 +95,7 @@ public class LoginDialog extends javax.swing.JDialog {
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jButton1ActionPerformed
-  public String getUsername() {
-    return LoginField.getText().trim();
-  }
-  public String getPassword() {
-    return new String(PasswordField.getPassword());
-  }
-  public boolean isSucceeded() {
-    return succeeded;
-  }
-  private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    if(Login.authenticate(getUsername(), getPassword())) {
+      if(Login.authenticate(getUsername(), getPassword())) {
       /*JOptionPane.showMessageDialog(LoginDialog.this, 
               "Hi " + getUsername() + "! You have successfully logged in.",
               "Login",
@@ -120,6 +111,18 @@ public class LoginDialog extends javax.swing.JDialog {
       PasswordField.setText("");
       succeeded = false;
     }
+  }//GEN-LAST:event_jButton1ActionPerformed
+  public String getUsername() {
+    return LoginField.getText().trim();
+  }
+  public String getPassword() {
+    return new String(PasswordField.getPassword());
+  }
+  public boolean isSucceeded() {
+    return succeeded;
+  }
+  private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    
   }//GEN-LAST:event_jButton1MouseClicked
 
   /**
