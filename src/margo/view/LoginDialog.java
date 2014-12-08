@@ -110,7 +110,7 @@ public class LoginDialog extends javax.swing.JDialog {
               "Login",
               JOptionPane.INFORMATION_MESSAGE);
       succeeded = true;
-      
+      this.dispose();
     } else {
       JOptionPane.showMessageDialog(LoginDialog.this,
               "Invalid username or password",

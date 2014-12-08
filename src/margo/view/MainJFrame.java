@@ -12,6 +12,16 @@ public class MainJFrame extends JFrame {
    */
   public MainJFrame() {
     initComponents();
+    this.setVisible(true);
+    LoginDialog loginDlg = new LoginDialog(this, true);
+    loginDlg.setVisible(true);
+    
+    if(loginDlg.isSucceeded()) {
+      jButton1.setText("Hi " + loginDlg.getUsername() + "!");
+      loginDlg.dispose();
+      UserPanel userPanel = new UserPanel();
+      this.setContentPane(userPanel);
+    }
   }
 
   /**
@@ -55,15 +65,7 @@ public class MainJFrame extends JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
   private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    LoginDialog loginDlg = new LoginDialog(this, true);
-    loginDlg.setVisible(true);
     
-    if(loginDlg.isSucceeded()) {
-      jButton1.setText("Hi " + loginDlg.getUsername() + "!");
-      loginDlg.dispose();
-      UserPanel userPanel = new UserPanel();
-      this.setContentPane(userPanel);
-    }
   }//GEN-LAST:event_jButton1MouseClicked
 
   /**
@@ -96,7 +98,7 @@ public class MainJFrame extends JFrame {
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {
-        new MainJFrame().setVisible(true);
+        new MainJFrame();
       }
     });
   }
