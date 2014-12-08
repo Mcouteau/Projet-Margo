@@ -19,8 +19,10 @@ public class MainJFrame extends JFrame {
     if(loginDlg.isSucceeded()) {
       jButton1.setText("Hi " + loginDlg.getUsername() + "!");
       loginDlg.dispose();
-      UserPanel userPanel = new UserPanel();
+      UserPanel userPanel = new UserPanel(loginDlg.getUsername());
       this.setContentPane(userPanel);
+      
+      
     }
   }
 

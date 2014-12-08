@@ -5,6 +5,8 @@
  */
 package margo.view;
 
+import controller.ClasseController;
+
 /**
  *
  * @author Mtomas
@@ -35,6 +37,8 @@ public class UserPanel extends javax.swing.JPanel {
       default:
         
     }
+    ClasseController tmpClasse=new ClasseController() ;
+    classesTable.setModel(tmpClasse.Update());
     
   }
   
@@ -51,8 +55,6 @@ public class UserPanel extends javax.swing.JPanel {
         HomeTab = new javax.swing.JTabbedPane();
         Accueil = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        classes = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         students = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         account = new javax.swing.JPanel();
@@ -62,9 +64,16 @@ public class UserPanel extends javax.swing.JPanel {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        classes = new javax.swing.JScrollPane();
+        classesTable = new javax.swing.JTable();
 
         HomeTab.setName(""); // NOI18N
         HomeTab.setOpaque(true);
+        HomeTab.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                HomeTabFocusGained(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -72,21 +81,6 @@ public class UserPanel extends javax.swing.JPanel {
         Accueil.setViewportView(jTextArea1);
 
         HomeTab.addTab("Home", Accueil);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        classes.setViewportView(jTable1);
-
-        HomeTab.addTab("Classes", classes);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,7 +128,7 @@ public class UserPanel extends javax.swing.JPanel {
                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                     .addComponent(jPasswordField1)
                     .addComponent(jTextField2))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         accountLayout.setVerticalGroup(
             accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,10 +145,25 @@ public class UserPanel extends javax.swing.JPanel {
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         HomeTab.addTab("My account", account);
+
+        classesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Code Classe", "Lib Classe", "Code Filiere"
+            }
+        ));
+        classes.setViewportView(classesTable);
+
+        HomeTab.addTab("Classes", classes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -174,17 +183,21 @@ public class UserPanel extends javax.swing.JPanel {
     // TODO add your handling code here:
   }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void HomeTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_HomeTabFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HomeTabFocusGained
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Accueil;
     private javax.swing.JTabbedPane HomeTab;
     private javax.swing.JPanel account;
     private javax.swing.JScrollPane classes;
+    private javax.swing.JTable classesTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;

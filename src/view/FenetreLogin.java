@@ -5,6 +5,11 @@
  */
 package view;
 
+import controller.Login;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Etudiant
@@ -14,9 +19,9 @@ public class FenetreLogin extends javax.swing.JDialog {
     /**
      * Creates new form FenetreLogin
      */
-    public FenetreLogin(java.awt.Frame parent, boolean modal) {
+    public FenetreLogin(java.awt.Frame parent, boolean modal)  {
         super(parent, modal);
-        initComponents();
+        initComponents();        
     }
 
     /**
@@ -58,6 +63,11 @@ public class FenetreLogin extends javax.swing.JDialog {
         SaisiePass.setToolTipText("Entrez votre mot de passe");
 
         BoutonValider.setText("Valider");
+        BoutonValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoutonValiderActionPerformed(evt);
+            }
+        });
 
         BoutonAnnuler.setText("Quitter");
         BoutonAnnuler.addActionListener(new java.awt.event.ActionListener() {
@@ -82,15 +92,14 @@ public class FenetreLogin extends javax.swing.JDialog {
                                 .addComponent(BoutonAnnuler)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BoutonValider))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(labelPass)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(SaisiePass))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(labelUti, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(SaisieNom, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelPass)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(SaisiePass))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelUti, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(SaisieNom, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 28, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -126,6 +135,11 @@ public class FenetreLogin extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_BoutonAnnulerActionPerformed
 
+    private void BoutonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonValiderActionPerformed
+        Login con= new Login();
+        //con.Connexion(SaisieNom,SaisiePass );
+    }//GEN-LAST:event_BoutonValiderActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -142,6 +156,7 @@ public class FenetreLogin extends javax.swing.JDialog {
                     break;
                 }
             }
+            
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(FenetreLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
