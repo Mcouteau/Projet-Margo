@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package margo.view;
 
+import javax.swing.JFrame;
 /**
  *
  * @author Mtomas
  */
-public class MainJFrame extends javax.swing.JFrame {
+public class MainJFrame extends JFrame {
 
   /**
    * Creates new form MainJFrame
@@ -65,6 +61,8 @@ public class MainJFrame extends javax.swing.JFrame {
     if(loginDlg.isSucceeded()) {
       jButton1.setText("Hi " + loginDlg.getUsername() + "!");
       loginDlg.dispose();
+      UserPanel userPanel = new UserPanel();
+      this.setContentPane(userPanel);
     }
   }//GEN-LAST:event_jButton1MouseClicked
 
