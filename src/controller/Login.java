@@ -11,4 +11,15 @@ package controller;
  */
 public class Login {
     
+    public void Connexion(String utilisateur,String MdP){
+        
+    }
+    public void Deconnexion(String utilisateur){
+        
+    }
+    public boolean Etat(String utilisateur){
+        boolean state=false;
+        
+        return state;
+    }
 }
