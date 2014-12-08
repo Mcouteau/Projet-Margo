@@ -1,21 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package margo;
 
-/**
- *
- * @author Maxime
- */
-public class Margo {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+import margo.view.MainJFrame;
+
+public class Margo {
+  
+  public static final String DBURL = "jdbc:oracle:thin:@localhost:1521:XE";
+  public static final String DBUSER = "margo";
+  public static final String DBPASS = "margo";
+  
+    public static void main(String[] args) throws SQLException {
+//        DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+//        
+//        Connection dbcon = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+//        Statement stmt = dbcon.createStatement();
+//        
+//        stmt.close();
+//        dbcon.close();
+      MainJFrame mainFrame = new MainJFrame();
+      System.out.println("Launching program");
+      mainFrame.setVisible(true);
     }
     
 }
