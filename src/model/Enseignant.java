@@ -3,6 +3,9 @@ package model;
 public class Enseignant extends Intervenant {
 	// Variables
 		protected String diplome;
+    
+      private static final String ROLE = "teacher";
+
 
 	// Constructeur
 		public Enseignant(String nomPersonne, String prenomPersonne, String situationFam, String adress, String diplom) {

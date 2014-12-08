@@ -1,24 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
-/**
- *
- * @author Etudiant
- */
+import model.Etudiant;
+import model.Enseignant;
+import model.Administratif;
+
 public class Login {
-  public static boolean authenticate(String username, String password) {
+  public static Object authenticate(String username, String password) {
     switch(username) {
       case "student":
-        return password.equals("student");
+        if(password.equals("student")) {
+          // @todo fetch user information in DB
+          Etudiant user = new Etudiant("Jean", "Martin", "Célibataire", "4 Rue des carmes, 44000 Nantes");
+          return user;
+        }
       case "teacher":
-        return password.equals("teacher");
+        if(password.equals("teacher")) {
+          // @todo fetch user information in DB
+          Enseignant user = new Enseignant("Richard", "Demont", "Marié", "25 Place des jonquilles, 44000 Nantes", "BTS NRC");
+          return user;
+        }
       case "admin":
-        return password.equals("admin");
+        if(password.equals("admin")) {
+          // @todo fetch user information in DB
+          Administratif user = new Administratif("Admin", "Admin", "Rien", "Adresse inconnue");
+          return user;
+        }
+      default:
+        return null;
     }
-    return false;
   }
 }

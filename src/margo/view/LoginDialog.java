@@ -104,7 +104,7 @@ public class LoginDialog extends javax.swing.JDialog {
     return succeeded;
   }
   private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    if(Login.authenticate(getUsername(), getPassword())) {
+    if(Login.authenticate(getUsername(), getPassword()) != null) {
       JOptionPane.showMessageDialog(LoginDialog.this, 
               "Hi " + getUsername() + "! You have successfully logged in.",
               "Login",

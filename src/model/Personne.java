@@ -6,6 +6,8 @@ public class Personne {
 		protected String prenom;
 		protected String situationFamilial;
 		protected String adresse;		
+    
+    private static String ROLE = "";
 	
 	// Constructeur
 		public Personne(String nomPersonne, String prenomPersonne, String situationFam, String adress) {
@@ -55,4 +57,8 @@ public class Personne {
 		public String toString() {
 			return "Nom : " + getNom() + "\nPrenom : " + getPrenom() + "\nSituation Familial : " + getSituationFamilial() + "\nAdresse : " + getAdresse() + "\n";
 		}
+    
+    public String getRole() {
+      return this.ROLE;
+    }
 }
