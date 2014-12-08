@@ -105,12 +105,12 @@ public class LoginDialog extends javax.swing.JDialog {
   }
   private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
     if(Login.authenticate(getUsername(), getPassword())) {
-      JOptionPane.showMessageDialog(LoginDialog.this, 
+      /*JOptionPane.showMessageDialog(LoginDialog.this, 
               "Hi " + getUsername() + "! You have successfully logged in.",
               "Login",
-              JOptionPane.INFORMATION_MESSAGE);
+              JOptionPane.INFORMATION_MESSAGE);*/
       succeeded = true;
-      
+      this.dispose();
     } else {
       JOptionPane.showMessageDialog(LoginDialog.this,
               "Invalid username or password",
