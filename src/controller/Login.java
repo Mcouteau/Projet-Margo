@@ -10,16 +10,15 @@ package controller;
  * @author Etudiant
  */
 public class Login {
-    
-    public void Connexion(String utilisateur,String MdP){
-        
+  public static boolean authenticate(String username, String password) {
+    switch(username) {
+      case "student":
+        return password.equals("student");
+      case "teacher":
+        return password.equals("teacher");
+      case "admin":
+        return password.equals("admin");
     }
-    public void Deconnexion(String utilisateur){
-        
-    }
-    public boolean Etat(String utilisateur){
-        boolean state=false;
-        
-        return state;
-    }
+    return false;
+  }
 }

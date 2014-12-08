@@ -2,8 +2,13 @@ package model;
 
 public class Login {
   public static boolean authenticate(String username, String password) {
-    if (username.equals("admin") && password.equals("admin")) {
-      return true;
+    switch(username) {
+      case "student":
+        return password.equals("student");
+      case "teacher":
+        return password.equals("teacher");
+      case "admin":
+        return password.equals("admin");
     }
     return false;
   }

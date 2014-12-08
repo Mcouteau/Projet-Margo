@@ -6,7 +6,7 @@
 package margo.view;
 
 import javax.swing.JOptionPane;
-import model.Login;
+import controller.Login;
 
 /**
  *
