@@ -6,7 +6,7 @@
 package margo.view;
 
 import controller.ClasseController;
-import controller.StudentController;
+import controller.EtudiantController;
 
 /**
  *
@@ -26,7 +26,7 @@ public class UserPanel extends javax.swing.JPanel {
     initComponents();    
     switch(user) {
       case "student":
-        HomeTab.remove(students);
+        HomeTab.remove(studentsScroll);
         HomeTab.remove(classes);
         break;
       case "teacher":
@@ -41,7 +41,11 @@ public class UserPanel extends javax.swing.JPanel {
     ClasseController tmpClasse=new ClasseController() ;
     classesTable.setModel(tmpClasse.Update());
     
-    StudentController tmpStudent=new StudentController() ;
+    //ClasseController tmpClasseEtudiant=new ClasseController() ;
+    //ListClasse.setListData(tmpClasseEtudiant.GetListClasse());
+    
+    
+    EtudiantController tmpStudent=new EtudiantController() ;
     studentsTable.setModel(tmpStudent.Update());
     
   }
@@ -58,18 +62,21 @@ public class UserPanel extends javax.swing.JPanel {
 
         HomeTab = new javax.swing.JTabbedPane();
         Accueil = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        students = new javax.swing.JScrollPane();
-        studentsTable = new javax.swing.JTable();
+        AccueilTextArea1 = new javax.swing.JTextArea();
         classes = new javax.swing.JScrollPane();
         classesTable = new javax.swing.JTable();
+        students = new javax.swing.JPanel();
+        studentsScroll = new javax.swing.JScrollPane();
+        studentsTable = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListClasse = new javax.swing.JList();
         account = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jLabelUsername = new javax.swing.JLabel();
+        AccountUserName = new javax.swing.JTextField();
+        jLabelUserPassword = new javax.swing.JLabel();
+        AccountPassword = new javax.swing.JPasswordField();
+        jLabelEmail = new javax.swing.JLabel();
+        AccountEmail = new javax.swing.JTextField();
 
         HomeTab.setName(""); // NOI18N
         HomeTab.setOpaque(true);
@@ -79,54 +86,79 @@ public class UserPanel extends javax.swing.JPanel {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Hello!\n\nWelcome to MARGO application.\n\nUse the top tabs to navigate within the app.");
-        Accueil.setViewportView(jTextArea1);
+        AccueilTextArea1.setColumns(20);
+        AccueilTextArea1.setRows(5);
+        AccueilTextArea1.setText("Hello!\n\nWelcome to MARGO application.\n\nUse the top tabs to navigate within the app.");
+        Accueil.setViewportView(AccueilTextArea1);
 
         HomeTab.addTab("Home", Accueil);
 
-        studentsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        students.setViewportView(studentsTable);
-
-        HomeTab.addTab("Students", students);
-
         classesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
                 {null, null, null}
             },
             new String [] {
-                "Code Classe", "Lib Classe", "Code Filiere"
+                "(Code Classe)", "(Lib Classe)", "(Code Filiere)"
             }
         ));
         classes.setViewportView(classesTable);
 
         HomeTab.addTab("Classes", classes);
 
-        jLabel1.setText("Username");
+        studentsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "(ID)", "(Nom)", "(Prenom)", "(Situation)", "(Adresse)"
+            }
+        ));
+        studentsScroll.setViewportView(studentsTable);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        ListClasse.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "(Connexion Error)" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        ListClasse.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(ListClasse);
+
+        javax.swing.GroupLayout studentsLayout = new javax.swing.GroupLayout(students);
+        students.setLayout(studentsLayout);
+        studentsLayout.setHorizontalGroup(
+            studentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(studentsLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(studentsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(studentsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        studentsLayout.setVerticalGroup(
+            studentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, studentsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(studentsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        HomeTab.addTab("Students", students);
+
+        jLabelUsername.setText("Username");
+
+        AccountUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                AccountUserNameActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Password");
+        jLabelUserPassword.setText("Password");
 
-        jLabel3.setText("Email address");
+        jLabelEmail.setText("Email address");
 
         javax.swing.GroupLayout accountLayout = new javax.swing.GroupLayout(account);
         account.setLayout(accountLayout);
@@ -136,35 +168,35 @@ public class UserPanel extends javax.swing.JPanel {
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(accountLayout.createSequentialGroup()
                         .addGap(136, 136, 136)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabelUsername))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, accountLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))))
+                            .addComponent(jLabelUserPassword)
+                            .addComponent(jLabelEmail))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1)
-                    .addComponent(jTextField2))
-                .addContainerGap(42, Short.MAX_VALUE))
+                    .addComponent(AccountUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                    .addComponent(AccountPassword)
+                    .addComponent(AccountEmail))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         accountLayout.setVerticalGroup(
             accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(accountLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelUsername)
+                    .addComponent(AccountUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(AccountPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelUserPassword))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(135, Short.MAX_VALUE))
+                    .addComponent(jLabelEmail)
+                    .addComponent(AccountEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         HomeTab.addTab("My account", account);
@@ -173,19 +205,19 @@ public class UserPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HomeTab, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(HomeTab)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HomeTab, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(HomeTab, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
         );
 
         HomeTab.getAccessibleContext().setAccessibleName("Home");
     }// </editor-fold>//GEN-END:initComponents
 
-  private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+  private void AccountUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountUserNameActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jTextField1ActionPerformed
+  }//GEN-LAST:event_AccountUserNameActionPerformed
 
     private void HomeTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_HomeTabFocusGained
         // TODO add your handling code here:
@@ -193,19 +225,22 @@ public class UserPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AccountEmail;
+    private javax.swing.JPasswordField AccountPassword;
+    private javax.swing.JTextField AccountUserName;
     private javax.swing.JScrollPane Accueil;
+    private javax.swing.JTextArea AccueilTextArea1;
     private javax.swing.JTabbedPane HomeTab;
+    private javax.swing.JList ListClasse;
     private javax.swing.JPanel account;
     private javax.swing.JScrollPane classes;
     private javax.swing.JTable classesTable;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JScrollPane students;
+    private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelUserPassword;
+    private javax.swing.JLabel jLabelUsername;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel students;
+    private javax.swing.JScrollPane studentsScroll;
     private javax.swing.JTable studentsTable;
     // End of variables declaration//GEN-END:variables
 }

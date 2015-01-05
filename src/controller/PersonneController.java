@@ -29,7 +29,7 @@ import oracle.sql.*;
  *
  * @author Etudiant
  */
-public class StudentController {
+public class PersonneController {
     
     private String DBURL = "jdbc:oracle:thin:@localhost:1521:XE";
     private String DBUSER = "margo";
