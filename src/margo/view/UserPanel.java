@@ -6,6 +6,7 @@
 package margo.view;
 
 import controller.ClasseController;
+import controller.StudentController;
 
 /**
  *
@@ -40,6 +41,9 @@ public class UserPanel extends javax.swing.JPanel {
     ClasseController tmpClasse=new ClasseController() ;
     classesTable.setModel(tmpClasse.Update());
     
+    StudentController tmpStudent=new StudentController() ;
+    studentsTable.setModel(tmpStudent.Update());
+    
   }
   
 
@@ -56,7 +60,9 @@ public class UserPanel extends javax.swing.JPanel {
         Accueil = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         students = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        studentsTable = new javax.swing.JTable();
+        classes = new javax.swing.JScrollPane();
+        classesTable = new javax.swing.JTable();
         account = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -64,8 +70,6 @@ public class UserPanel extends javax.swing.JPanel {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        classes = new javax.swing.JScrollPane();
-        classesTable = new javax.swing.JTable();
 
         HomeTab.setName(""); // NOI18N
         HomeTab.setOpaque(true);
@@ -82,7 +86,7 @@ public class UserPanel extends javax.swing.JPanel {
 
         HomeTab.addTab("Home", Accueil);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        studentsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -93,9 +97,24 @@ public class UserPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        students.setViewportView(jTable2);
+        students.setViewportView(studentsTable);
 
         HomeTab.addTab("Students", students);
+
+        classesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Code Classe", "Lib Classe", "Code Filiere"
+            }
+        ));
+        classes.setViewportView(classesTable);
+
+        HomeTab.addTab("Classes", classes);
 
         jLabel1.setText("Username");
 
@@ -150,21 +169,6 @@ public class UserPanel extends javax.swing.JPanel {
 
         HomeTab.addTab("My account", account);
 
-        classesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Code Classe", "Lib Classe", "Code Filiere"
-            }
-        ));
-        classes.setViewportView(classesTable);
-
-        HomeTab.addTab("Classes", classes);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,10 +202,10 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JScrollPane students;
+    private javax.swing.JTable studentsTable;
     // End of variables declaration//GEN-END:variables
 }

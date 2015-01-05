@@ -29,7 +29,7 @@ import oracle.sql.*;
  *
  * @author Etudiant
  */
-public class ClasseController {
+public class StudentController {
     
     private String DBURL = "jdbc:oracle:thin:@localhost:1521:XE";
     private String DBUSER = "margo";
@@ -40,7 +40,7 @@ public class ClasseController {
             
 
     public TableModel Update() {
-        String columnNames[] = { "Code Classe","Lib Classe","Code Filiere"};
+        String columnNames[] = { "ID","Nom","Prenom","Situation","Adresse","Classe"};
         DefaultTableModel defModel = new DefaultTableModel();
         defModel.setColumnIdentifiers(columnNames);
     
@@ -48,28 +48,35 @@ public class ClasseController {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
             if (con == null)
-                System.out.println("con classe ko ");
+                System.out.println("con etudiant ko ");
             else
-                System.out.println("con classe ok ");
+                System.out.println("con etudiant ok ");
             Statement statement = con.createStatement();
             if (statement == null)
-                System.out.println("statement classe ko ");
+                System.out.println("statement etudiant ko ");
             else
-                System.out.println("statement classe ok ");
+                System.out.println("statement etudiant ok ");
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"classe\" c join \"filiere\" f on c.codefiliere=f.codefiliere" );
+            ResultSet rs = statement.executeQuery("select * from \"etudiant\" e join \"classe\" c on c.codeclasse=e.codeclasse" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
-            String codeCLasse = "";
-            String LibClasse = "";
-            String CodeFiliere = "";
+            String idEtudiant = "";
+            String nom = "";
+            String prenom = "";
+            String situation = "";
+            String adresse = "";
+            String classe = "";
             while (rs.next()) {
-                codeCLasse= "N.A";
-                LibClasse=rs.getString("LIBCLASSE");
-                CodeFiliere = rs.getString("LIBFILIERE");;
-                defModel.addRow(new Object [] {codeCLasse,LibClasse,CodeFiliere} );
+                idEtudiant= rs.getString("IDPERS");
+                nom= rs.getString("NOM");
+                prenom= rs.getString("PRENOM");
+                situation= rs.getString("SITUATION");
+                adresse= rs.getString("ADRESSE");
+                classe= rs.getString("LIBCLASSE");
+                
+                defModel.addRow(new Object [] {idEtudiant,nom,prenom,situation,adresse,classe} );
                 
                 
             }
