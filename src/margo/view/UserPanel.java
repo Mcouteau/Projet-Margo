@@ -7,6 +7,7 @@ package margo.view;
 
 import controller.ClasseController;
 import controller.EtudiantController;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -41,12 +42,16 @@ public class UserPanel extends javax.swing.JPanel {
     ClasseController tmpClasse=new ClasseController() ;
     classesTable.setModel(tmpClasse.Update());
     
-    //ClasseController tmpClasseEtudiant=new ClasseController() ;
-    //ListClasse.setListData(tmpClasseEtudiant.GetListClasse());
+    ClasseController tmpClasseEtudiant=new ClasseController() ;
+    //ListClasse.setModel(tmpClasseEtudiant.GetListClasse());
+    //ListClasseB= tmpClasseEtudiant.GetListClasse();
+    //ListClasseB = new JComboBox(tmpClasseEtudiant.GetListClasse());
+    //ListClasseB.setModel(new javax.swing.DefaultComboBoxModel(tmpClasseEtudiant.GetListClasse());
     
     
-    EtudiantController tmpStudent=new EtudiantController() ;
-    studentsTable.setModel(tmpStudent.Update());
+    
+    EtudiantController tmpEtudiant=new EtudiantController() ;
+    studentsTable.setModel(tmpEtudiant.Update());
     
   }
   
@@ -70,6 +75,7 @@ public class UserPanel extends javax.swing.JPanel {
         studentsTable = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListClasse = new javax.swing.JList();
+        ListClasseB = new javax.swing.JComboBox();
         account = new javax.swing.JPanel();
         jLabelUsername = new javax.swing.JLabel();
         AccountUserName = new javax.swing.JTextField();
@@ -121,6 +127,11 @@ public class UserPanel extends javax.swing.JPanel {
             public Object getElementAt(int i) { return strings[i]; }
         });
         ListClasse.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        ListClasse.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListClasseValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(ListClasse);
 
         javax.swing.GroupLayout studentsLayout = new javax.swing.GroupLayout(students);
@@ -130,6 +141,8 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(studentsLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ListClasseB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(studentsLayout.createSequentialGroup()
                 .addContainerGap()
@@ -140,7 +153,9 @@ public class UserPanel extends javax.swing.JPanel {
             studentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, studentsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(studentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ListClasseB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(studentsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
                 .addContainerGap())
@@ -223,6 +238,16 @@ public class UserPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_HomeTabFocusGained
 
+    private void ListClasseValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListClasseValueChanged
+        // TODO add your handling code here:
+    //    ClasseController tmpClasseEtudiant=new ClasseController() ;
+    //ListClasse.setModel(tmpClasseEtudiant.GetListClasse());
+    
+    
+    EtudiantController tmpEtudiant=new EtudiantController() ;
+    studentsTable.setModel(tmpEtudiant.Update(ListClasse.getSelectedValue()));
+    }//GEN-LAST:event_ListClasseValueChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AccountEmail;
@@ -232,6 +257,7 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea AccueilTextArea1;
     private javax.swing.JTabbedPane HomeTab;
     private javax.swing.JList ListClasse;
+    private javax.swing.JComboBox ListClasseB;
     private javax.swing.JPanel account;
     private javax.swing.JScrollPane classes;
     private javax.swing.JTable classesTable;

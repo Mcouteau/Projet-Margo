@@ -9,8 +9,8 @@ public class Etudiant extends Personne {
 			super(nomPersonne, prenomPersonne, situationFam, adress);
 		}
                 
-                public Object [] RetourTableau(){
-                        return new Object [] {nom,prenom,situationFamilial,adresse}; 
+                public Object [] RetourTableau(String classe){
+                        return new Object [] {nom,prenom,situationFamilial,adresse,classe}; 
                                 
                 }
 
