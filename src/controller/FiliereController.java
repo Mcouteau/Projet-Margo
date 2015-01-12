@@ -30,7 +30,7 @@ import oracle.sql.*;
  *
  * @author Etudiant
  */
-public class ClasseController {
+public class FiliereController {
     
     private String DBURL = "jdbc:oracle:thin:@localhost:1521:XE";
     private String DBUSER = "margo";
@@ -41,7 +41,7 @@ public class ClasseController {
             
 
     public TableModel Update() {
-        String columnNames[] = { "Code Classe","Lib Classe","Code Filiere"};
+        String columnNames[] = { "Lib Filiere"};
         DefaultTableModel defModel = new DefaultTableModel();
         defModel.setColumnIdentifiers(columnNames);
     
@@ -60,17 +60,17 @@ public class ClasseController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"classe\" c join \"filiere\" f on c.codefiliere=f.codefiliere" );
+            ResultSet rs = statement.executeQuery("select * from \"filiere\"" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
-            String codeCLasse = "";
-            String LibClasse = "";
-            String CodeFiliere = "";
+            //String codeCLasse = "";
+            String LibFiliere = "";
+            //String CodeFiliere = "";
             while (rs.next()) {
-                codeCLasse= "N.A";
-                LibClasse=rs.getString("LIBCLASSE");
-                CodeFiliere = rs.getString("LIBFILIERE");;
-                defModel.addRow(new Object [] {codeCLasse,LibClasse,CodeFiliere} );
+                //codeCLasse= "N.A";
+                LibFiliere=rs.getString("LIBFILIERE");
+                
+                defModel.addRow(new Object [] {LibFiliere} );
                 
                 
             }
@@ -85,7 +85,7 @@ public class ClasseController {
     }
     
    
-    public DefaultComboBoxModel<String> GetListClasse(){
+    public DefaultComboBoxModel<String> GetListFiliere(){
         
         //String columnNames[] = { "Lib Classe"};
         DefaultComboBoxModel<String> defModel = new DefaultComboBoxModel<String>();
@@ -106,16 +106,16 @@ public class ClasseController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"classe\"" );
+            ResultSet rs = statement.executeQuery("select * from \"filiere\"" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
-            defModel.addElement( "All");
-            String LibClasse = "";
+            //defModel.addElement( "All");
+            String LibFiliere = "";
             while (rs.next()) {
                 
-                LibClasse=rs.getString("LIBCLASSE");
+                LibFiliere=rs.getString("LIBFILIERE");
                 
-                defModel.addElement( LibClasse);
+                defModel.addElement( LibFiliere);
                 
                 
             }
@@ -129,7 +129,7 @@ public class ClasseController {
         
         
     }
-    public int AddClasse(String NouvelleClasse,String Filiere){
+    public int AddFiliere(String NouvelleFiliere){
         
         int retour;
     
@@ -148,11 +148,11 @@ public class ClasseController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            String ordreSQL= "insert into \"classe\"(CODECLASSE,LIBCLASSE,CODEFILIERE) values(SEQ_CLASSE.nextVAL,?,(select codefiliere from \"filiere\" where libfiliere=?))" ;
+            String ordreSQL= "insert into \"filiere\"(CODEFILIERE,LIBFILIERE,IDPERS) values(SEQ_FILIERE.nextVAL,?,NULL)";//(select codefiliere from filiere where libfiliere=?))" ;
             
             PreparedStatement etatPrepare = con.prepareStatement(ordreSQL);
-            etatPrepare.setString(1,NouvelleClasse);
-            etatPrepare.setString(2, Filiere);
+            etatPrepare.setString(1,NouvelleFiliere);
+            
             
             
             retour=etatPrepare.executeUpdate();
