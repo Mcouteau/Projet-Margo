@@ -19,10 +19,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.ListModel;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Classe;
@@ -86,10 +84,10 @@ public class ClasseController {
     }
     
    
-    public ListModel GetListClasse(){
+    public DefaultComboBoxModel GetListClasse(){
         
         //String columnNames[] = { "Lib Classe"};
-        DefaultListModel defModel = new DefaultListModel<String>();
+        DefaultComboBoxModel defModel = new DefaultComboBoxModel();
         //defModel.setColumnIdentifiers(columnNames);
     
         try {
