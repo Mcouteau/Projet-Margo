@@ -29,6 +29,7 @@ public class UserPanel extends javax.swing.JPanel {
       case "student":
         HomeTab.remove(studentsScroll);
         HomeTab.remove(classes);
+        
         break;
       case "teacher":
         HomeTab.remove(classes);
@@ -43,10 +44,12 @@ public class UserPanel extends javax.swing.JPanel {
     classesTable.setModel(tmpClasse.Update());
     
     ClasseController tmpClasseEtudiant=new ClasseController() ;    
-    ListClasseB.setModel(tmpClasseEtudiant.GetListClasse());    
+    ListClasseB.setModel(tmpClasseEtudiant.GetListClasse());  
+    
+    
     
     EtudiantController tmpEtudiant=new EtudiantController() ;
-    studentsTable.setModel(tmpEtudiant.Update());
+    studentsTable.setModel(tmpEtudiant.Update(ListClasseB.getSelectedItem().toString()));
     
   }
   

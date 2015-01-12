@@ -87,7 +87,7 @@ public class ClasseController {
     public DefaultComboBoxModel GetListClasse(){
         
         //String columnNames[] = { "Lib Classe"};
-        DefaultComboBoxModel defModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel<String> defModel = new DefaultComboBoxModel<String>();
         //defModel.setColumnIdentifiers(columnNames);
     
         try {
