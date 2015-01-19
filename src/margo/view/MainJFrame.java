@@ -12,14 +12,14 @@ public class MainJFrame extends JFrame {
    */
   public MainJFrame() {
     initComponents();
-    this.setVisible(true);
+    this.setVisible(false);
     LoginDialog loginDlg = new LoginDialog(this, true);
     loginDlg.setVisible(true);
+    this.setLocationRelativeTo(null) ;
     
     if(loginDlg.isSucceeded()) {
-      jButton1.setText("Hi " + loginDlg.getUsername() + "!");
       loginDlg.dispose();
-      UserPanel userPanel = new UserPanel(loginDlg.getUsername());
+      UserPanel userPanel = new UserPanel(loginDlg.getUsername(),);
       this.setContentPane(userPanel);
       this.setSize(userPanel.getPreferredSize());
       

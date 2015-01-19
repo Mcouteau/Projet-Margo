@@ -31,7 +31,7 @@ public class UserPanel extends javax.swing.JPanel {
     
   }
   
-  public UserPanel(String user) {
+  public UserPanel(String user,int id) {
     initComponents();    
     switch(user) {
       case "student":
