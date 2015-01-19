@@ -41,7 +41,7 @@ public class ClasseController {
             
 
     public TableModel Update() {
-        String columnNames[] = { "Code Classe","Lib Classe","Code Filiere"};
+        String columnNames[] = { "Lib Classe","Liste Filiere"};
         DefaultTableModel defModel = new DefaultTableModel();
         defModel.setColumnIdentifiers(columnNames);
     
@@ -63,14 +63,14 @@ public class ClasseController {
             ResultSet rs = statement.executeQuery("select * from \"classe\" c join \"filiere\" f on c.codefiliere=f.codefiliere" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
-            String codeCLasse = "";
+            
             String LibClasse = "";
-            String CodeFiliere = "";
+            String LibFiliere = "";
             while (rs.next()) {
-                codeCLasse= "N.A";
+                
                 LibClasse=rs.getString("LIBCLASSE");
-                CodeFiliere = rs.getString("LIBFILIERE");;
-                defModel.addRow(new Object [] {codeCLasse,LibClasse,CodeFiliere} );
+                LibFiliere = rs.getString("LIBFILIERE");;
+                defModel.addRow(new Object [] {LibClasse,LibFiliere} );
                 
                 
             }

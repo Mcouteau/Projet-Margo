@@ -8,12 +8,18 @@ package margo.view;
 import controller.ClasseController;
 import controller.EtudiantController;
 import controller.FiliereController;
+import java.awt.Color;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Mtomas
  */
+
+//CREATE SEQUENCE SEQ_CLASSE INCREMENT BY 1 MAXVALUE 100000 MINVALUE 1 CACHE 20;
+//CREATE SEQUENCE SEQ_FILIERE INCREMENT BY 1 MAXVALUE 100000 MINVALUE 1 CACHE 20;
+
 public class UserPanel extends javax.swing.JPanel {
 
   /**
@@ -76,6 +82,8 @@ public class UserPanel extends javax.swing.JPanel {
         filieresTable = new javax.swing.JTable();
         AjoutFiliere = new javax.swing.JButton();
         nouvfiliere = new javax.swing.JTextField();
+        LabelInfo = new javax.swing.JLabel();
+        MessageAjoutFiliere = new javax.swing.JLabel();
         classes = new javax.swing.JPanel();
         classesScroll = new javax.swing.JScrollPane();
         classesTable = new javax.swing.JTable();
@@ -116,7 +124,15 @@ public class UserPanel extends javax.swing.JPanel {
             new String [] {
                 "(Lib Filiere)"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         filieresScroll.setViewportView(filieresTable);
 
         AjoutFiliere.setText("Ajouter");
@@ -127,6 +143,13 @@ public class UserPanel extends javax.swing.JPanel {
         });
 
         nouvfiliere.setToolTipText("entrez le nom de la nouvelle classe");
+        nouvfiliere.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nouvfiliereFocusGained(evt);
+            }
+        });
+
+        LabelInfo.setText("Filiere à ajouter");
 
         javax.swing.GroupLayout filieresLayout = new javax.swing.GroupLayout(filieres);
         filieres.setLayout(filieresLayout);
@@ -134,10 +157,18 @@ public class UserPanel extends javax.swing.JPanel {
             filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nouvfiliere, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addComponent(nouvfiliere)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AjoutFiliere)
                 .addGap(23, 23, 23))
+            .addGroup(filieresLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(LabelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
+            .addGroup(filieresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MessageAjoutFiliere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
                     .addContainerGap()
@@ -147,11 +178,15 @@ public class UserPanel extends javax.swing.JPanel {
         filieresLayout.setVerticalGroup(
             filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
-                .addContainerGap(221, Short.MAX_VALUE)
+                .addContainerGap(215, Short.MAX_VALUE)
+                .addComponent(LabelInfo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AjoutFiliere)
                     .addComponent(nouvfiliere, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(MessageAjoutFiliere, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
                     .addContainerGap()
@@ -163,17 +198,13 @@ public class UserPanel extends javax.swing.JPanel {
 
         classesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+                {null, null}
             },
             new String [] {
-                "(Code Classe)", "(Lib Classe)", "(Code Filiere)"
+                "(Lib Classe)", "(Lib Filiere)"
             }
         ));
         classesScroll.setViewportView(classesTable);
-        if (classesTable.getColumnModel().getColumnCount() > 0) {
-            classesTable.getColumnModel().getColumn(0).setHeaderValue("(Code Classe)");
-            classesTable.getColumnModel().getColumn(2).setHeaderValue("(Code Filiere)");
-        }
 
         AjoutClasse.setText("Ajouter");
         AjoutClasse.addActionListener(new java.awt.event.ActionListener() {
@@ -367,10 +398,39 @@ public class UserPanel extends javax.swing.JPanel {
     private void AjoutFiliereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjoutFiliereActionPerformed
         // TODO add your handling code here:
         FiliereController tmpFiliere= new FiliereController ();
-        tmpFiliere.AddFiliere(nouvfiliere.getText());
+        int resultatAjoutFiliere=tmpFiliere.AddFiliere(nouvfiliere.getText());
+        switch (resultatAjoutFiliere ){
+            case -1:
+                MessageAjoutFiliere.setForeground(Color.RED);
+                MessageAjoutFiliere.setText("Erreur lors de l'ajout de filiere");
+                break;
+            case -2:
+                MessageAjoutFiliere.setForeground(Color.RED);
+                MessageAjoutFiliere.setText("Veuillez ajouter une filiere");
+                break;
+            case -3:
+                MessageAjoutFiliere.setForeground(Color.RED);
+                MessageAjoutFiliere.setText("Filiere Deja Presente");
+                break;
+            case -4:
+                MessageAjoutFiliere.setForeground(Color.RED);
+                MessageAjoutFiliere.setText("Filiere ne doit pas commencer par un espace");
+                break;
+            default:
+                MessageAjoutFiliere.setForeground(Color.GREEN);
+                MessageAjoutFiliere.setText("Ajout de la filiere Reussie");
+        }
         
         filieresTable.setModel(tmpFiliere.Update());
+        
+        nouvfiliere.setText("");
+        
     }//GEN-LAST:event_AjoutFiliereActionPerformed
+
+    private void nouvfiliereFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nouvfiliereFocusGained
+        // TODO add your handling code here:
+        MessageAjoutFiliere.setText("");
+    }//GEN-LAST:event_nouvfiliereFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -382,7 +442,9 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JButton AjoutClasse;
     private javax.swing.JButton AjoutFiliere;
     private javax.swing.JTabbedPane HomeTab;
+    private javax.swing.JLabel LabelInfo;
     private javax.swing.JComboBox ListClasseB;
+    private javax.swing.JLabel MessageAjoutFiliere;
     private javax.swing.JPanel account;
     private javax.swing.JPanel classes;
     private javax.swing.JScrollPane classesScroll;

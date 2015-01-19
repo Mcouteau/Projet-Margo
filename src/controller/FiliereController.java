@@ -41,7 +41,7 @@ public class FiliereController {
             
 
     public TableModel Update() {
-        String columnNames[] = { "Lib Filiere"};
+        String columnNames[] = { "Liste Filiere"};
         DefaultTableModel defModel = new DefaultTableModel();
         defModel.setColumnIdentifiers(columnNames);
     
@@ -132,7 +132,15 @@ public class FiliereController {
     public int AddFiliere(String NouvelleFiliere){
         
         int retour;
+        
+        if (NouvelleFiliere.isEmpty()){
+            return -2;
+        }
     
+        if (NouvelleFiliere.startsWith(" ")){
+            return -4;
+        }
+        
         try {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
@@ -147,6 +155,20 @@ public class FiliereController {
                 System.out.println("statement classe ok ");
             
             //System.out.println("test1 : " + SaisieNom.getText());
+            
+             String ordreSQLControle= "select count(1) from \"filiere\" where LIBFILIERE=?";//(select codefiliere from filiere where libfiliere=?))" ;
+            
+            PreparedStatement etatPrepareControle = con.prepareStatement(ordreSQLControle);
+            etatPrepareControle.setString(1,NouvelleFiliere);
+            
+            
+            ResultSet rs=etatPrepareControle.executeQuery();
+            rs.next();
+            if (rs.getInt(1)!=0){
+                
+                return -3;
+            }
+            
             
             String ordreSQL= "insert into \"filiere\"(CODEFILIERE,LIBFILIERE,IDPERS) values(SEQ_FILIERE.nextVAL,?,NULL)";//(select codefiliere from filiere where libfiliere=?))" ;
             
