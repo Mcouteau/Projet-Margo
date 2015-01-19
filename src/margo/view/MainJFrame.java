@@ -21,12 +21,9 @@ public class MainJFrame extends JFrame {
     if(loginDlg.isSucceeded()) {
       Personne user = loginDlg.getUser();
       loginDlg.dispose();
-      this.setVisible(true);
       UserPanel userPanel = new UserPanel(user);
       this.setContentPane(userPanel);
       this.setSize(userPanel.getPreferredSize());
-      
-      
     }
   }
 
