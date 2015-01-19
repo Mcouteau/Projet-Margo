@@ -52,6 +52,7 @@ public class Login {
       
         if(password.equals(mdp)){
                 Personne user = new Personne(id,nom,prenom,adresse,situation,role);
+                return user;
             }else{
                 return null;
                 }
