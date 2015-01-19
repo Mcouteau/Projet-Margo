@@ -10,8 +10,6 @@ package controller;
  * @author Etudiant
  */
 
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -63,7 +61,7 @@ public class EtudiantController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"etudiant\" e join \"classe\" c on c.codeclasse=e.codeclasse" );
+            ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE from personne p inner join appartientclasse a on a.idetudiant=p.idpers inner join classe c on c.codeclasse=a.idclasse where p.typepersonne = 2" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             String idEtudiant = "";
@@ -118,10 +116,10 @@ public class EtudiantController {
             ResultSet rs ;
             //System.out.println("test1 : " + SaisieNom.getText());
             if ( classe.toString() == "All"){
-                rs = statement.executeQuery("select * from \"etudiant\" e join \"classe\" c on c.codeclasse=e.codeclasse");
+                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE from personne p inner join appartientclasse a on a.idetudiant=p.idpers inner join classe c on c.codeclasse=a.idclasse where p.typepersonne = 2");
             }
             else{
-                rs = statement.executeQuery("select * from \"etudiant\" e join \"classe\" c on c.codeclasse=e.codeclasse where LIBCLASSE = '"+ classe.toString()+"'");
+                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE from personne p inner join appartientclasse a on a.idetudiant=p.idpers inner join classe c on c.codeclasse=a.idclasse where p.typepersonne = 2 AND c.LIBCLASSE = '"+ classe.toString()+"'");
             }
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
