@@ -1,6 +1,7 @@
 package margo.view;
 
 import javax.swing.JFrame;
+import model.Personne;
 /**
  *
  * @author Mtomas
@@ -18,8 +19,9 @@ public class MainJFrame extends JFrame {
     this.setLocationRelativeTo(null) ;
     
     if(loginDlg.isSucceeded()) {
+      Personne user = loginDlg.getUser();
       loginDlg.dispose();
-      UserPanel userPanel = new UserPanel(loginDlg.getUsername(),);
+      UserPanel userPanel = new UserPanel(user);
       this.setContentPane(userPanel);
       this.setSize(userPanel.getPreferredSize());
       

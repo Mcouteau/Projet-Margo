@@ -12,6 +12,7 @@ import java.awt.Color;
 import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import model.Personne;
 
 /**
  *
@@ -31,18 +32,18 @@ public class UserPanel extends javax.swing.JPanel {
     
   }
   
-  public UserPanel(String user,int id) {
+  public UserPanel(Personne user) {
     initComponents();    
-    switch(user) {
-      case "student":
+    switch(user.getRole()) {
+      case "etudiant":
         HomeTab.remove(etudiantsScroll);
         HomeTab.remove(classesScroll);
         
         break;
-      case "teacher":
+      case "prof":
         HomeTab.remove(classesScroll);
           break;
-      case "admin":
+      case "administratif":
         //HomeTab.remove(Accueil);
           break;
       default:

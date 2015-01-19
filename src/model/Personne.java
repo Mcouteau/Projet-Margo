@@ -9,23 +9,28 @@ public class Personne {
     protected String prenom;
     protected String situationFamilial;
     protected String adresse;
+    protected int type;
+    protected int id;
 
     private static String ROLE = "";
 
     // Constructeur
-    public Personne(String nomPersonne, String prenomPersonne, String situationFam, String adress) {
+    public Personne(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,int type) {
         this.nom = nomPersonne;
         this.prenom = prenomPersonne;
         this.situationFamilial = situationFam;
         this.adresse = adress;
+        this.type = type;
     }
 
     //
     public Personne() {
+        this.id= 0;
         this.nom = "Non defini";
         this.prenom = "Non defini";
         this.situationFamilial = "Non defini";
         this.adresse = "Non defini";
+        this.type = 0;
     }
 
     // Getteurs et Setteurs
@@ -79,6 +84,24 @@ public class Personne {
         this.idpers = idpers;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
+    
 	// Methode
     // Affichage
     public String toString() {
@@ -86,6 +109,27 @@ public class Personne {
     }
 
     public String getRole() {
-        return this.ROLE;
+        String libelle="";
+        
+        switch(this.type){
+            case 1:
+                libelle = "administratif";
+                break;
+            case 2:
+                libelle = "etudiant";
+                break;
+            case 3:
+                libelle = "prof";
+                break;
+            case 4:
+                libelle = "intervenant";
+                break;
+            case 5:
+                libelle = "technicien";
+                break;
+                
+            
+        }
+        return libelle;
     }
 }

@@ -64,21 +64,21 @@ public class EtudiantController {
             ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE from personne p inner join appartientclasse a on a.idetudiant=p.idpers inner join classe c on c.codeclasse=a.idclasse where p.typepersonne = 2" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
-            String idEtudiant = "";
+            int idEtudiant =0;
             String nom = "";
             String prenom = "";
             String situation = "";
             String adresse = "";
             String libclasse = "";
             while (rs.next()) {
-                idEtudiant= rs.getString("IDPERS");
+                idEtudiant= rs.getInt("IDPERS");
                 nom= rs.getString("NOM");
                 prenom= rs.getString("PRENOM");
                 situation= rs.getString("SITUATION");
                 adresse= rs.getString("ADRESSE");
                 libclasse= rs.getString("LIBCLASSE");
                 //Etudiant(String nomPersonne, String prenomPersonne, String situationFam, String adress)
-                Etudiant tmpEtu= new Etudiant(nom,prenom,situation,adresse);
+                Etudiant tmpEtu= new Etudiant(idEtudiant,nom,prenom,situation,adresse,2);
                 defModel.addRow(tmpEtu.RetourTableau(libclasse) );  
                 
                 
@@ -123,21 +123,21 @@ public class EtudiantController {
             }
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
-            
+            int idEtudiant = 0;
             String nom = "";
             String prenom = "";
             String situation = "";
             String adresse = "";
             String libclasse = "";
             while (rs.next()) {
-                
+                idEtudiant = rs.getInt("IDPERS");
                 nom= rs.getString("NOM");
                 prenom= rs.getString("PRENOM");
                 situation= rs.getString("SITUATION");
                 adresse= rs.getString("ADRESSE");
                 libclasse= rs.getString("LIBCLASSE");
                 //Etudiant(String nomPersonne, String prenomPersonne, String situationFam, String adress)
-                Etudiant tmpEtu= new Etudiant(nom,prenom,situation,adresse);
+                Etudiant tmpEtu= new Etudiant(idEtudiant,nom,prenom,situation,adresse,2);
                 defModel.addRow(tmpEtu.RetourTableau(libclasse));  
                 
                 

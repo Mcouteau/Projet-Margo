@@ -3,7 +3,7 @@ package model;
 public class Personnel extends Personne {
 
 	// Constructeur
-		public Personnel(String nomPersonne, String prenomPersonne, String situationFam, String adress) {
-			super( nomPersonne, prenomPersonne, situationFam, adress);
+		public Personnel(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,int type) {
+			super(id,nomPersonne, prenomPersonne, situationFam, adress,type);
 		}
 }

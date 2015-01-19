@@ -5,8 +5,8 @@ public class Etudiant extends Personne {
   private static final String ROLE = "student";
   
 	// Constructeur
-		public Etudiant(String nomPersonne, String prenomPersonne, String situationFam, String adress) {
-			super(nomPersonne, prenomPersonne, situationFam, adress);
+		public Etudiant(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,int type) {
+			super(id,nomPersonne, prenomPersonne, situationFam, adress,type);
 		}
                 
                 public Object [] RetourTableau(String classe){

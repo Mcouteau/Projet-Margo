@@ -8,9 +8,9 @@ public class Enseignant extends Intervenant {
 
 
 	// Constructeur
-		public Enseignant(String nomPersonne, String prenomPersonne, String situationFam, String adress, String diplom) {
-			super(nomPersonne, prenomPersonne, situationFam, adress);
-			this.diplome = diplom;
+		public Enseignant(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,int type,String diplom) {
+			super(id,nomPersonne, prenomPersonne, situationFam, adress,type);
+			this.diplome=diplom;
 		}
 	
 	// Getteur et Setteur

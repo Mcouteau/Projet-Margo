@@ -8,8 +8,8 @@ public class Technicien extends Intervenant {
 
 
 	// Constructeur
-		public Technicien(String nomPersonne, String prenomPersonne, String situationFam, String adress, String spe) {
-			super( nomPersonne, prenomPersonne, situationFam, adress);
+		public Technicien(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,int type,String spe){
+			super(id,nomPersonne, prenomPersonne, situationFam, adress,type);
 			this.specialite = spe;
 		}
 }

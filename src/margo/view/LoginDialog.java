@@ -7,6 +7,7 @@ package margo.view;
 
 import javax.swing.JOptionPane;
 import controller.Login;
+import model.Personne;
 
 /**
  *
@@ -15,7 +16,7 @@ import controller.Login;
 public class LoginDialog extends javax.swing.JDialog {
   
   private boolean succeeded;
-
+  private Personne user;
   /**
    * Creates new form LoginDialog
    */
@@ -99,7 +100,9 @@ public class LoginDialog extends javax.swing.JDialog {
 
   private void jButtonConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConnexionActionPerformed
     // TODO add your handling code here:
-      if(Login.authenticate(getUsername(), getPassword()) != null) {
+      user = Login.authenticate(getUsername(), getPassword());
+      
+      if(user != null) {
       /*JOptionPane.showMessageDialog(LoginDialog.this, 
               "Hi " + getUsername() + "! You have successfully logged in.",
               "Login",
@@ -125,7 +128,13 @@ public class LoginDialog extends javax.swing.JDialog {
   }
   public boolean isSucceeded() {
     return succeeded;
-  }                                   
+  }              
+
+    public Personne getUser() {
+        return user;
+    }
+  
+  
 
   private void jButtonConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConnexionMouseClicked
      
