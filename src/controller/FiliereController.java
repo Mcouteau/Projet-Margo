@@ -44,6 +44,8 @@ public class FiliereController {
         String columnNames[] = { "Liste Filiere"};
         DefaultTableModel defModel = new DefaultTableModel();
         defModel.setColumnIdentifiers(columnNames);
+        SequenceController seq_classe= new SequenceController();
+        seq_classe.CreateSequence("SEQ_FILIERE");
     
         try {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());

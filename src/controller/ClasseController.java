@@ -43,7 +43,10 @@ public class ClasseController {
     public TableModel Update() {
         String columnNames[] = { "Lib Classe","Liste Filiere"};
         DefaultTableModel defModel = new DefaultTableModel();
-        defModel.setColumnIdentifiers(columnNames);
+        defModel.setColumnIdentifiers(columnNames); 
+        SequenceController seq_classe= new SequenceController();
+        seq_classe.CreateSequence("SEQ_CLASSE");
+        
     
         try {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
