@@ -61,7 +61,7 @@ public class EtudiantController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2" );
+            ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             int idEtudiant =0;
@@ -116,7 +116,7 @@ public class EtudiantController {
             ResultSet rs ;
             //System.out.println("test1 : " + SaisieNom.getText());
             if ( classe.toString() == "All"){
-                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2");
+                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2");
             }
             else{
                 rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2 AND c.LIBCLASSE = '"+ classe.toString()+"'");
