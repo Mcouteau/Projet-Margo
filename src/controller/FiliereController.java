@@ -62,7 +62,7 @@ public class FiliereController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"filiere\" order by LIBFILIERE" );
+            ResultSet rs = statement.executeQuery("select * from \"FILIERE\" order by LIBFILIERE" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             //String codeCLasse = "";
@@ -108,7 +108,7 @@ public class FiliereController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"filiere\"" );
+            ResultSet rs = statement.executeQuery("select * from \"FILIERE\"" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             //defModel.addElement( "All");
@@ -161,7 +161,7 @@ public class FiliereController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-             String ordreSQLControle= "select count(1) from \"filiere\" where LIBFILIERE=?";//(select codefiliere from filiere where libfiliere=?))" ;
+             String ordreSQLControle= "select count(1) from \"FILIERE\" where LIBFILIERE=?";//(select codefiliere from filiere where libfiliere=?))" ;
             
             PreparedStatement etatPrepareControle = con.prepareStatement(ordreSQLControle);
             etatPrepareControle.setString(1,NouvelleFiliere);

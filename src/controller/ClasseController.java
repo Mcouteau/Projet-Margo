@@ -58,7 +58,7 @@ public class ClasseController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"classe\" c join \"filiere\" f on c.codefiliere=f.codefiliere order by LIBCLASSE" );
+            ResultSet rs = statement.executeQuery("select * from \"CLASSE\" c join \"FILIERE\" f on c.CODEFILIERE=f.CODEFILIERE order by LIBCLASSE" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             
@@ -102,7 +102,7 @@ public class ClasseController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"classe\" order by LIBCLASSE" );
+            ResultSet rs = statement.executeQuery("select * from \"CLASSE\" order by LIBCLASSE" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             defModel.addElement( "All");
@@ -144,7 +144,7 @@ public class ClasseController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            String ordreSQL= "insert into \"classe\"(CODECLASSE,LIBCLASSE,CODEFILIERE) values(SEQ_CLASSE.nextVAL,?,(select codefiliere from \"filiere\" where libfiliere=?))" ;
+            String ordreSQL= "insert into \"CLASSE\"(CODECLASSE,LIBCLASSE,CODEFILIERE) values(SEQ_CLASSE.nextVAL,?,(select CODEFILIERE from \"FILIERE\" where LIBFILIERE=?))" ;
             
             PreparedStatement etatPrepare = con.prepareStatement(ordreSQL);
             etatPrepare.setString(1,NouvelleClasse);
