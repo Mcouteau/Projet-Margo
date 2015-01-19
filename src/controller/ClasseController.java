@@ -10,8 +10,6 @@ package controller;
  * @author Etudiant
  */
 
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -36,10 +34,7 @@ public class ClasseController {
     private String DBUSER = "margo";
     private String DBPASS = "margo";  
     //private Classe classeTmp;
-    
-    
-            
-
+ 
     public TableModel Update() {
         String columnNames[] = { "Lib Classe","Liste Filiere"};
         DefaultTableModel defModel = new DefaultTableModel();
@@ -73,9 +68,7 @@ public class ClasseController {
                 
                 LibClasse=rs.getString("LIBCLASSE");
                 LibFiliere = rs.getString("LIBFILIERE");;
-                defModel.addRow(new Object [] {LibClasse,LibFiliere} );
-                
-                
+                defModel.addRow(new Object [] {LibClasse,LibFiliere} );  
             }
             rs.close();
             statement.close();

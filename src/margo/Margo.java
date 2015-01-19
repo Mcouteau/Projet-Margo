@@ -25,7 +25,8 @@ public class Margo {
 //        dbcon.close();
       MainJFrame mainFrame = new MainJFrame();
       System.out.println("Launching program");
-      mainFrame.setVisible(true);
+      mainFrame.setVisible(false);
+      mainFrame.setLocationRelativeTo(null) ;
     }
     
 }
