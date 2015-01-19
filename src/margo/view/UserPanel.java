@@ -35,7 +35,7 @@ public class UserPanel extends javax.swing.JPanel {
     initComponents();    
     switch(user) {
       case "student":
-        HomeTab.remove(studentsScroll);
+        HomeTab.remove(etudiantsScroll);
         HomeTab.remove(classesScroll);
         
         break;
@@ -61,7 +61,7 @@ public class UserPanel extends javax.swing.JPanel {
     listeFiliere.setModel(tmpFiliereB.GetListFiliere());     
     
     EtudiantController tmpEtudiant=new EtudiantController() ;
-    studentsTable.setModel(tmpEtudiant.Update(ListClasseB.getSelectedItem().toString()));
+    etudiantsTable.setModel(tmpEtudiant.Update(ListClasseB.getSelectedItem().toString()));
     
   }
   
@@ -91,10 +91,12 @@ public class UserPanel extends javax.swing.JPanel {
         AjoutClasse = new javax.swing.JButton();
         nouvclasse = new javax.swing.JTextField();
         listeFiliere = new javax.swing.JComboBox();
-        students = new javax.swing.JPanel();
-        studentsScroll = new javax.swing.JScrollPane();
-        studentsTable = new javax.swing.JTable();
+        etudiants = new javax.swing.JPanel();
+        etudiantsScroll = new javax.swing.JScrollPane();
+        etudiantsTable = new javax.swing.JTable();
         ListClasseB = new javax.swing.JComboBox();
+        professeurs = new javax.swing.JPanel();
+        administrateurs = new javax.swing.JPanel();
         account = new javax.swing.JPanel();
         jLabelUsername = new javax.swing.JLabel();
         AccountUserName = new javax.swing.JTextField();
@@ -197,7 +199,7 @@ public class UserPanel extends javax.swing.JPanel {
                     .addGap(109, 109, 109)))
         );
 
-        HomeTab.addTab("Filieres", filieres);
+        HomeTab.addTab("Gestion des Filieres", filieres);
 
         classesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -260,9 +262,9 @@ public class UserPanel extends javax.swing.JPanel {
 
         AjoutClasse.getAccessibleContext().setAccessibleName("AjoutClasse");
 
-        HomeTab.addTab("Classes", classes);
+        HomeTab.addTab("Gestion des Classes", classes);
 
-        studentsTable.setModel(new javax.swing.table.DefaultTableModel(
+        etudiantsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null}
             },
@@ -270,7 +272,7 @@ public class UserPanel extends javax.swing.JPanel {
                 "(Nom)", "(Prenom)", "(Situation)", "(Adresse)", "(Classe)"
             }
         ));
-        studentsScroll.setViewportView(studentsTable);
+        etudiantsScroll.setViewportView(etudiantsTable);
 
         ListClasseB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,30 +280,56 @@ public class UserPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout studentsLayout = new javax.swing.GroupLayout(students);
-        students.setLayout(studentsLayout);
-        studentsLayout.setHorizontalGroup(
-            studentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(studentsLayout.createSequentialGroup()
+        javax.swing.GroupLayout etudiantsLayout = new javax.swing.GroupLayout(etudiants);
+        etudiants.setLayout(etudiantsLayout);
+        etudiantsLayout.setHorizontalGroup(
+            etudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(etudiantsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(studentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(studentsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
-                    .addGroup(studentsLayout.createSequentialGroup()
+                .addGroup(etudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etudiantsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
+                    .addGroup(etudiantsLayout.createSequentialGroup()
                         .addComponent(ListClasseB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        studentsLayout.setVerticalGroup(
-            studentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, studentsLayout.createSequentialGroup()
+        etudiantsLayout.setVerticalGroup(
+            etudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, etudiantsLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(ListClasseB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(studentsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(etudiantsScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
         );
 
-        HomeTab.addTab("Students", students);
+        HomeTab.addTab("Gestion des Etudiants", etudiants);
+
+        javax.swing.GroupLayout professeursLayout = new javax.swing.GroupLayout(professeurs);
+        professeurs.setLayout(professeursLayout);
+        professeursLayout.setHorizontalGroup(
+            professeursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
+        );
+        professeursLayout.setVerticalGroup(
+            professeursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 472, Short.MAX_VALUE)
+        );
+
+        HomeTab.addTab("Gestion des Professeurs", professeurs);
+
+        javax.swing.GroupLayout administrateursLayout = new javax.swing.GroupLayout(administrateurs);
+        administrateurs.setLayout(administrateursLayout);
+        administrateursLayout.setHorizontalGroup(
+            administrateursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
+        );
+        administrateursLayout.setVerticalGroup(
+            administrateursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 472, Short.MAX_VALUE)
+        );
+
+        HomeTab.addTab("Gestion des administrateurs", administrateurs);
 
         jLabelUsername.setText("Username");
 
@@ -354,7 +382,7 @@ public class UserPanel extends javax.swing.JPanel {
                 .addContainerGap(335, Short.MAX_VALUE))
         );
 
-        HomeTab.addTab("My account", account);
+        HomeTab.addTab("Mon compte", account);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -381,7 +409,7 @@ public class UserPanel extends javax.swing.JPanel {
     private void ListClasseBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListClasseBActionPerformed
         // TODO add your handling code here:
         EtudiantController tmpEtudiant=new EtudiantController() ;
-        studentsTable.setModel(tmpEtudiant.Update(ListClasseB.getSelectedItem().toString()));
+        etudiantsTable.setModel(tmpEtudiant.Update(ListClasseB.getSelectedItem().toString()));
     }//GEN-LAST:event_ListClasseBActionPerformed
 
     private void AjoutClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjoutClasseActionPerformed
@@ -459,9 +487,13 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox ListClasseB;
     private javax.swing.JLabel MessageAjoutFiliere;
     private javax.swing.JPanel account;
+    private javax.swing.JPanel administrateurs;
     private javax.swing.JPanel classes;
     private javax.swing.JScrollPane classesScroll;
     private javax.swing.JTable classesTable;
+    private javax.swing.JPanel etudiants;
+    private javax.swing.JScrollPane etudiantsScroll;
+    private javax.swing.JTable etudiantsTable;
     private javax.swing.JPanel filieres;
     private javax.swing.JScrollPane filieresScroll;
     private javax.swing.JTable filieresTable;
@@ -471,8 +503,6 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox listeFiliere;
     private javax.swing.JTextField nouvclasse;
     private javax.swing.JTextField nouvfiliere;
-    private javax.swing.JPanel students;
-    private javax.swing.JScrollPane studentsScroll;
-    private javax.swing.JTable studentsTable;
+    private javax.swing.JPanel professeurs;
     // End of variables declaration//GEN-END:variables
 }
