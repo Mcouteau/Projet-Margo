@@ -45,6 +45,8 @@ public class EtudiantController {
         String columnNames[] = { "Nom","Prenom","Situation","Adresse","Classe"};
         DefaultTableModel defModel = new DefaultTableModel();
         defModel.setColumnIdentifiers(columnNames);
+        SequenceController seq_classe= new SequenceController();
+        seq_classe.CreateSequence("SEQ_ETUDIANT");
     
         try {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
@@ -97,6 +99,8 @@ public class EtudiantController {
         String columnNames[] = { "Nom","Prenom","Situation","Adresse","Classe"};
         DefaultTableModel defModel = new DefaultTableModel();
         defModel.setColumnIdentifiers(columnNames);
+        SequenceController seq_classe= new SequenceController();
+        seq_classe.CreateSequence("SEQ_ETUDIANT");
     
         try {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());

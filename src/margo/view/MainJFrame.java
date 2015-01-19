@@ -21,6 +21,7 @@ public class MainJFrame extends JFrame {
       loginDlg.dispose();
       UserPanel userPanel = new UserPanel(loginDlg.getUsername());
       this.setContentPane(userPanel);
+      this.setSize(userPanel.getPreferredSize());
       
       
     }
@@ -52,7 +53,7 @@ public class MainJFrame extends JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(242, Short.MAX_VALUE)
+                .addContainerGap(199, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(73, 73, 73))
         );
