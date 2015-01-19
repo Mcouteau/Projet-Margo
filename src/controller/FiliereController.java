@@ -62,7 +62,7 @@ public class FiliereController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"filiere\"" );
+            ResultSet rs = statement.executeQuery("select * from \"filiere\" order by LIBFILIERE" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             //String codeCLasse = "";
@@ -87,7 +87,7 @@ public class FiliereController {
     }
     
    
-    public DefaultComboBoxModel<String> GetListFiliere(){
+    public ComboBoxModel<String> GetListFiliere(){
         
         //String columnNames[] = { "Lib Classe"};
         DefaultComboBoxModel<String> defModel = new DefaultComboBoxModel<String>();
@@ -141,6 +141,9 @@ public class FiliereController {
     
         if (NouvelleFiliere.startsWith(" ")){
             return -4;
+        }
+        if (NouvelleFiliere.length()>32){
+            return -5;
         }
         
         try {

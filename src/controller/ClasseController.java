@@ -63,7 +63,7 @@ public class ClasseController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"classe\" c join \"filiere\" f on c.codefiliere=f.codefiliere" );
+            ResultSet rs = statement.executeQuery("select * from \"classe\" c join \"filiere\" f on c.codefiliere=f.codefiliere order by LIBCLASSE" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             
@@ -88,7 +88,7 @@ public class ClasseController {
     }
     
    
-    public DefaultComboBoxModel<String> GetListClasse(){
+    public ComboBoxModel<String> GetListClasse(){
         
         //String columnNames[] = { "Lib Classe"};
         DefaultComboBoxModel<String> defModel = new DefaultComboBoxModel<String>();
@@ -109,7 +109,7 @@ public class ClasseController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select * from \"classe\"" );
+            ResultSet rs = statement.executeQuery("select * from \"classe\" order by LIBCLASSE" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             defModel.addElement( "All");

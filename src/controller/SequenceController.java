@@ -70,7 +70,7 @@ public class SequenceController {
                 
                 "EXCEPTION\n" +
                 "  WHEN no_data_found THEN\n" +
-                "    EXECUTE IMMEDIATE 'CREATE SEQUENCE "+newSequence+" INCREMENT BY 1 MAXVALUE 100000 MINVALUE 1 CACHE 20;';\n" +
+                "    EXECUTE IMMEDIATE 'CREATE SEQUENCE "+newSequence+" INCREMENT BY 1 MAXVALUE 100000 MINVALUE 1 CACHE 20';\n" +
                 "END;";
             PreparedStatement etatPrepare = con.prepareStatement(ordreSQL);
             etatPrepare.setString(1,newSequence);
