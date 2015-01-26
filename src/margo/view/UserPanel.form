@@ -109,7 +109,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="389" max="32767" attributes="0"/>
+                      <EmptySpace pref="412" max="32767" attributes="0"/>
                       <Component id="LabelInfo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -123,7 +123,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="filieresScroll" pref="352" max="32767" attributes="0"/>
+                          <Component id="filieresScroll" pref="383" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -219,7 +219,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="395" max="32767" attributes="0"/>
+                      <EmptySpace pref="416" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="AjoutClasse" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="nouvclasse" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -230,7 +230,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="classesScroll" pref="352" max="32767" attributes="0"/>
+                          <Component id="classesScroll" pref="383" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -332,7 +332,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="ListClasseB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                      <EmptySpace pref="66" max="32767" attributes="0"/>
                       <Component id="etudiantsScroll" min="-2" pref="284" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                   </Group>
@@ -423,7 +423,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="472" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="498" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -445,7 +445,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="472" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="498" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -462,27 +462,66 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                              <Component id="jLabelUsername" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabelUserPassword" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+                                      <Component id="jLabelUsername" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelUserPassword1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelUserPassword" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabelUserPassword2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                              <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jCmbSituation" max="32767" attributes="0"/>
+                          <Component id="jCmbRole" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTxtFieldNom" alignment="0" pref="165" max="32767" attributes="0"/>
+                          <Component id="jTxtFieldPrenom" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTxtFieldAdresse" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jTxtFieldMail" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblOldMdp" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblNewMdp" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBtnValider" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="AccountUserName" pref="165" max="32767" attributes="0"/>
-                          <Component id="AccountPassword" max="32767" attributes="0"/>
-                          <Component id="AccountEmail" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jPwdFieldOldMdp" max="32767" attributes="0"/>
+                                  <Component id="jTxtFieldLogin" max="32767" attributes="0"/>
+                                  <Component id="jPwdFieldNewMdp" pref="93" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" pref="18" max="32767" attributes="0"/>
+                              <Component id="jBtnChangeMdp" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jBtnAnnuler" min="-2" pref="137" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -492,19 +531,43 @@
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="AccountUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFieldNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFieldLogin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBtnChangeMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="AccountPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFieldPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelUserPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblOldMdp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPwdFieldOldMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="AccountEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFieldAdresse" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelUserPassword1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblNewMdp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPwdFieldNewMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="335" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTxtFieldMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelUserPassword2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jCmbRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jCmbSituation" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBtnValider" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBtnAnnuler" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="220" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -512,27 +575,132 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabelUsername">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Username"/>
+                <Property name="text" type="java.lang.String" value="Nom"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="AccountUserName">
+            <Component class="javax.swing.JTextField" name="jTxtFieldNom">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AccountUserNameActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtFieldNomActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelUserPassword">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Password"/>
+                <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="AccountPassword">
+            <Component class="javax.swing.JPasswordField" name="jTxtFieldPrenom">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelEmail">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Email address"/>
+                <Property name="text" type="java.lang.String" value="Situation"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="AccountEmail">
+            <Component class="javax.swing.JLabel" name="jLabelUserPassword1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Adresse"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="jTxtFieldAdresse">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelUserPassword2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mail"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="jTxtFieldMail">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jCmbRole">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="5">
+                    <StringItem index="0" value="Administration"/>
+                    <StringItem index="1" value="Professeur"/>
+                    <StringItem index="2" value="Etudiant"/>
+                    <StringItem index="3" value="Technicien"/>
+                    <StringItem index="4" value="Intervenant"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCmbRoleActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="R&#xf4;le"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jCmbSituation">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Celibataire"/>
+                    <StringItem index="1" value="Marie"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCmbSituationActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jBtnChangeMdp">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Changer le mot de passe"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnChangeMdpActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Login"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTxtFieldLogin">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtFieldLoginActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLblOldMdp">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ancien mot de passe"/>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLblNewMdp">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nouveau mot de passe"/>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="jPwdFieldOldMdp">
+              <Properties>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPwdFieldOldMdpActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="jPwdFieldNewMdp">
+              <Properties>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jBtnValider">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Valider changements"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnValiderActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jBtnAnnuler">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Annuler"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAnnulerActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

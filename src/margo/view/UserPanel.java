@@ -100,11 +100,26 @@ public class UserPanel extends javax.swing.JPanel {
         administrateurs = new javax.swing.JPanel();
         account = new javax.swing.JPanel();
         jLabelUsername = new javax.swing.JLabel();
-        AccountUserName = new javax.swing.JTextField();
+        jTxtFieldNom = new javax.swing.JTextField();
         jLabelUserPassword = new javax.swing.JLabel();
-        AccountPassword = new javax.swing.JPasswordField();
+        jTxtFieldPrenom = new javax.swing.JPasswordField();
         jLabelEmail = new javax.swing.JLabel();
-        AccountEmail = new javax.swing.JTextField();
+        jLabelUserPassword1 = new javax.swing.JLabel();
+        jTxtFieldAdresse = new javax.swing.JPasswordField();
+        jLabelUserPassword2 = new javax.swing.JLabel();
+        jTxtFieldMail = new javax.swing.JPasswordField();
+        jCmbRole = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        jCmbSituation = new javax.swing.JComboBox();
+        jBtnChangeMdp = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTxtFieldLogin = new javax.swing.JTextField();
+        jLblOldMdp = new javax.swing.JLabel();
+        jLblNewMdp = new javax.swing.JLabel();
+        jPwdFieldOldMdp = new javax.swing.JPasswordField();
+        jPwdFieldNewMdp = new javax.swing.JPasswordField();
+        jBtnValider = new javax.swing.JButton();
+        jBtnAnnuler = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(500, 500));
 
@@ -184,7 +199,7 @@ public class UserPanel extends javax.swing.JPanel {
         filieresLayout.setVerticalGroup(
             filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
-                .addContainerGap(389, Short.MAX_VALUE)
+                .addContainerGap(412, Short.MAX_VALUE)
                 .addComponent(LabelInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -196,7 +211,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(filieresScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(filieresScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                     .addGap(109, 109, 109)))
         );
 
@@ -248,7 +263,7 @@ public class UserPanel extends javax.swing.JPanel {
         classesLayout.setVerticalGroup(
             classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, classesLayout.createSequentialGroup()
-                .addContainerGap(395, Short.MAX_VALUE)
+                .addContainerGap(416, Short.MAX_VALUE)
                 .addGroup(classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AjoutClasse)
                     .addComponent(nouvclasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,7 +272,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, classesLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(classesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(classesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                     .addGap(109, 109, 109)))
         );
 
@@ -299,7 +314,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, etudiantsLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(ListClasseB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(etudiantsScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(98, 98, 98))
         );
@@ -314,7 +329,7 @@ public class UserPanel extends javax.swing.JPanel {
         );
         professeursLayout.setVerticalGroup(
             professeursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGap(0, 498, Short.MAX_VALUE)
         );
 
         HomeTab.addTab("Gestion des Professeurs", professeurs);
@@ -327,22 +342,86 @@ public class UserPanel extends javax.swing.JPanel {
         );
         administrateursLayout.setVerticalGroup(
             administrateursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGap(0, 498, Short.MAX_VALUE)
         );
 
         HomeTab.addTab("Gestion des administrateurs", administrateurs);
 
-        jLabelUsername.setText("Username");
+        jLabelUsername.setText("Nom");
 
-        AccountUserName.addActionListener(new java.awt.event.ActionListener() {
+        jTxtFieldNom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AccountUserNameActionPerformed(evt);
+                jTxtFieldNomActionPerformed(evt);
             }
         });
 
-        jLabelUserPassword.setText("Password");
+        jLabelUserPassword.setText("Prénom");
 
-        jLabelEmail.setText("Email address");
+        jLabelEmail.setText("Situation");
+
+        jLabelUserPassword1.setText("Adresse");
+
+        jLabelUserPassword2.setText("Mail");
+
+        jCmbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administration", "Professeur", "Etudiant", "Technicien", "Intervenant" }));
+        jCmbRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCmbRoleActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Rôle");
+
+        jCmbSituation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Celibataire", "Marie" }));
+        jCmbSituation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCmbSituationActionPerformed(evt);
+            }
+        });
+
+        jBtnChangeMdp.setText("Changer le mot de passe");
+        jBtnChangeMdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnChangeMdpActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Login");
+
+        jTxtFieldLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtFieldLoginActionPerformed(evt);
+            }
+        });
+
+        jLblOldMdp.setText("Ancien mot de passe");
+        jLblOldMdp.setOpaque(true);
+
+        jLblNewMdp.setText("Nouveau mot de passe");
+        jLblNewMdp.setOpaque(true);
+
+        jPwdFieldOldMdp.setOpaque(true);
+        jPwdFieldOldMdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPwdFieldOldMdpActionPerformed(evt);
+            }
+        });
+
+        jPwdFieldNewMdp.setOpaque(true);
+
+        jBtnValider.setText("Valider changements");
+        jBtnValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnValiderActionPerformed(evt);
+            }
+        });
+
+        jBtnAnnuler.setText("Annuler");
+        jBtnAnnuler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAnnulerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout accountLayout = new javax.swing.GroupLayout(account);
         account.setLayout(accountLayout);
@@ -350,20 +429,50 @@ public class UserPanel extends javax.swing.JPanel {
             accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(accountLayout.createSequentialGroup()
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(accountLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabelUsername))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, accountLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelUserPassword)
-                            .addComponent(jLabelEmail))))
+                        .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(accountLayout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(jLabelUsername))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, accountLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelUserPassword1)
+                                        .addComponent(jLabelUserPassword))
+                                    .addComponent(jLabelUserPassword2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(accountLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabelEmail)
+                        .addGap(8, 8, 8)))
+                .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jCmbSituation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCmbRole, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTxtFieldNom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                    .addComponent(jTxtFieldPrenom, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTxtFieldAdresse)
+                    .addComponent(jTxtFieldMail))
+                .addGap(22, 22, 22)
+                .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLblOldMdp)
+                    .addComponent(jLblNewMdp)
+                    .addComponent(jBtnValider))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(AccountUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                    .addComponent(AccountPassword)
-                    .addComponent(AccountEmail))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(accountLayout.createSequentialGroup()
+                        .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPwdFieldOldMdp)
+                            .addComponent(jTxtFieldLogin)
+                            .addComponent(jPwdFieldNewMdp, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 18, Short.MAX_VALUE)
+                        .addComponent(jBtnChangeMdp)
+                        .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(accountLayout.createSequentialGroup()
+                        .addComponent(jBtnAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         accountLayout.setVerticalGroup(
             accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,16 +480,37 @@ public class UserPanel extends javax.swing.JPanel {
                 .addGap(55, 55, 55)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUsername)
-                    .addComponent(AccountUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTxtFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnChangeMdp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AccountPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelUserPassword))
+                    .addComponent(jTxtFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelUserPassword)
+                    .addComponent(jLblOldMdp)
+                    .addComponent(jPwdFieldOldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtFieldAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelUserPassword1)
+                    .addComponent(jLblNewMdp)
+                    .addComponent(jPwdFieldNewMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtFieldMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelUserPassword2))
+                .addGap(9, 9, 9)
+                .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCmbSituation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelEmail)
-                    .addComponent(AccountEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(335, Short.MAX_VALUE))
+                    .addComponent(jBtnValider)
+                    .addComponent(jBtnAnnuler))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         HomeTab.addTab("Mon compte", account);
@@ -398,10 +528,6 @@ public class UserPanel extends javax.swing.JPanel {
 
         HomeTab.getAccessibleContext().setAccessibleName("Home");
     }// </editor-fold>//GEN-END:initComponents
-
-  private void AccountUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountUserNameActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_AccountUserNameActionPerformed
 
     private void HomeTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_HomeTabFocusGained
         // TODO add your handling code here:
@@ -474,11 +600,43 @@ public class UserPanel extends javax.swing.JPanel {
         MessageAjoutFiliere.setText("");
     }//GEN-LAST:event_nouvfiliereFocusGained
 
+    private void jCmbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCmbRoleActionPerformed
+
+    private void jTxtFieldNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFieldNomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtFieldNomActionPerformed
+
+    private void jCmbSituationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbSituationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCmbSituationActionPerformed
+
+    private void jTxtFieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFieldLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtFieldLoginActionPerformed
+
+    private void jBtnChangeMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnChangeMdpActionPerformed
+        jPwdFieldOldMdp.setOpaque(true);
+        jLblOldMdp.setOpaque(true);
+        jPwdFieldNewMdp.setOpaque(true);
+        jLblOldMdp.setOpaque(true);
+    }//GEN-LAST:event_jBtnChangeMdpActionPerformed
+
+    private void jPwdFieldOldMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPwdFieldOldMdpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPwdFieldOldMdpActionPerformed
+
+    private void jBtnAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAnnulerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnAnnulerActionPerformed
+
+    private void jBtnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnValiderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnValiderActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AccountEmail;
-    private javax.swing.JPasswordField AccountPassword;
-    private javax.swing.JTextField AccountUserName;
     private javax.swing.JScrollPane Accueil;
     private javax.swing.JTextArea AccueilTextArea1;
     private javax.swing.JButton AjoutClasse;
@@ -498,9 +656,27 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JPanel filieres;
     private javax.swing.JScrollPane filieresScroll;
     private javax.swing.JTable filieresTable;
+    private javax.swing.JButton jBtnAnnuler;
+    private javax.swing.JButton jBtnChangeMdp;
+    private javax.swing.JButton jBtnValider;
+    private javax.swing.JComboBox jCmbRole;
+    private javax.swing.JComboBox jCmbSituation;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelUserPassword;
+    private javax.swing.JLabel jLabelUserPassword1;
+    private javax.swing.JLabel jLabelUserPassword2;
     private javax.swing.JLabel jLabelUsername;
+    private javax.swing.JLabel jLblNewMdp;
+    private javax.swing.JLabel jLblOldMdp;
+    private javax.swing.JPasswordField jPwdFieldNewMdp;
+    private javax.swing.JPasswordField jPwdFieldOldMdp;
+    private javax.swing.JPasswordField jTxtFieldAdresse;
+    private javax.swing.JTextField jTxtFieldLogin;
+    private javax.swing.JPasswordField jTxtFieldMail;
+    private javax.swing.JTextField jTxtFieldNom;
+    private javax.swing.JPasswordField jTxtFieldPrenom;
     private javax.swing.JComboBox listeFiliere;
     private javax.swing.JTextField nouvclasse;
     private javax.swing.JTextField nouvfiliere;
