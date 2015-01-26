@@ -44,9 +44,10 @@ public class UserPanel extends javax.swing.JPanel {
       case "etudiant":
         HomeTab.remove(etudiantsScroll);
         HomeTab.remove(classesScroll);
-        
+        HomeTab.removeTabAt(7);
         break;
       case "prof":
+        HomeTab.remove(classesScroll);
         HomeTab.remove(classesScroll);
           break;
       case "administratif":
@@ -142,6 +143,26 @@ public class UserPanel extends javax.swing.JPanel {
         jTxtFieldAdresse = new javax.swing.JTextField();
         jTxtFieldId = new javax.swing.JTextField();
         jLblMdp = new javax.swing.JLabel();
+        Create = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTxtCreateNom = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTxtCreatePrenom = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTxtCreateAdresse = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTxtCreateMail = new javax.swing.JTextField();
+        jCmbCreateSituation = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jmbCreateRole = new javax.swing.JComboBox();
+        jPanel2 = new javax.swing.JPanel();
 
         setMinimumSize(new java.awt.Dimension(500, 500));
 
@@ -207,7 +228,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(filieresLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(LabelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(653, Short.MAX_VALUE))
+                .addContainerGap(851, Short.MAX_VALUE))
             .addGroup(filieresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(MessageAjoutFiliere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -215,13 +236,13 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(filieresScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                    .addComponent(filieresScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE)
                     .addGap(57, 57, 57)))
         );
         filieresLayout.setVerticalGroup(
             filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
-                .addContainerGap(412, Short.MAX_VALUE)
+                .addContainerGap(423, Short.MAX_VALUE)
                 .addComponent(LabelInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -233,7 +254,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(filieresScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                    .addComponent(filieresScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .addGap(109, 109, 109)))
         );
 
@@ -270,7 +291,7 @@ public class UserPanel extends javax.swing.JPanel {
             classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, classesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nouvclasse, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                .addComponent(nouvclasse, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(listeFiliere, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75)
@@ -279,13 +300,13 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, classesLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(classesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                    .addComponent(classesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE)
                     .addGap(57, 57, 57)))
         );
         classesLayout.setVerticalGroup(
             classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, classesLayout.createSequentialGroup()
-                .addContainerGap(416, Short.MAX_VALUE)
+                .addContainerGap(427, Short.MAX_VALUE)
                 .addGroup(classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AjoutClasse)
                     .addComponent(nouvclasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,7 +315,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, classesLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(classesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                    .addComponent(classesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .addGap(109, 109, 109)))
         );
 
@@ -325,7 +346,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(etudiantsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(etudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etudiantsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+                    .addComponent(etudiantsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
                     .addGroup(etudiantsLayout.createSequentialGroup()
                         .addComponent(ListClasseB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -336,7 +357,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, etudiantsLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(ListClasseB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(etudiantsScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(98, 98, 98))
         );
@@ -366,7 +387,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(professeursLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(professeursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(professeursScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+                    .addComponent(professeursScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
                     .addGroup(professeursLayout.createSequentialGroup()
                         .addComponent(ListClasseB1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -407,7 +428,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(administratifsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(administratifsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(administratifsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+                    .addComponent(administratifsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
                     .addGroup(administratifsLayout.createSequentialGroup()
                         .addComponent(ListClasseB2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -571,7 +592,7 @@ public class UserPanel extends javax.swing.JPanel {
                                 .addGap(6, 6, 6)
                                 .addComponent(jLblMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jBtnAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         accountLayout.setVerticalGroup(
             accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -612,10 +633,153 @@ public class UserPanel extends javax.swing.JPanel {
                     .addComponent(jLabelEmail)
                     .addComponent(jBtnValider)
                     .addComponent(jBtnAnnuler))
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
 
         HomeTab.addTab("Mon compte", account);
+
+        jLabel8.setText("Mot de passe :");
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Login :");
+
+        jTxtCreateNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtCreateNomActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nom :");
+
+        jLabel4.setText("Prénom :");
+
+        jLabel5.setText("Adresse :");
+
+        jLabel6.setText("Mail :");
+
+        jTxtCreateMail.setText("jTextField1");
+
+        jCmbCreateSituation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel9.setText("Situation :");
+
+        jLabel10.setText("Rôle :");
+
+        jmbCreateRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(65, 65, 65)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6))
+                            .addGap(18, 18, 18)
+                            .addComponent(jTxtCreateMail, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(135, 135, 135)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                                .addComponent(jTxtCreatePrenom, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTxtCreateNom, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jmbCreateRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCmbCreateSituation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(150, 150, 150)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTxtCreateAdresse)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtCreateNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtCreatePrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel7)
+                    .addComponent(jTxtCreateAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtCreateMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCmbCreateSituation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jmbCreateRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addContainerGap(214, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab1", jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 933, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 467, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel2);
+
+        javax.swing.GroupLayout CreateLayout = new javax.swing.GroupLayout(Create);
+        Create.setLayout(CreateLayout);
+        CreateLayout.setHorizontalGroup(
+            CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CreateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+        CreateLayout.setVerticalGroup(
+            CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CreateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+
+        HomeTab.addTab("Create", Create);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -762,12 +926,21 @@ public class UserPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ListClasseB2ActionPerformed
 
+    private void jTxtCreateNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCreateNomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtCreateNomActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Accueil;
     private javax.swing.JTextArea AccueilTextArea1;
     private javax.swing.JButton AjoutClasse;
     private javax.swing.JButton AjoutFiliere;
+    private javax.swing.JPanel Create;
     private javax.swing.JTabbedPane HomeTab;
     private javax.swing.JLabel LabelInfo;
     private javax.swing.JComboBox ListClasseB;
@@ -790,10 +963,19 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JButton jBtnAnnuler;
     private javax.swing.JButton jBtnChangeMdp;
     private javax.swing.JButton jBtnValider;
+    private javax.swing.JComboBox jCmbCreateSituation;
     private javax.swing.JComboBox jCmbRole;
     private javax.swing.JComboBox jCmbSituation;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelUserPassword;
     private javax.swing.JLabel jLabelUserPassword1;
@@ -802,14 +984,24 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLblMdp;
     private javax.swing.JLabel jLblNewMdp;
     private javax.swing.JLabel jLblOldMdp;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPwdFieldNewMdp;
     private javax.swing.JPasswordField jPwdFieldOldMdp;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTxtCreateAdresse;
+    private javax.swing.JTextField jTxtCreateMail;
+    private javax.swing.JTextField jTxtCreateNom;
+    private javax.swing.JTextField jTxtCreatePrenom;
     private javax.swing.JTextField jTxtFieldAdresse;
     private javax.swing.JTextField jTxtFieldId;
     private javax.swing.JTextField jTxtFieldLogin;
     private javax.swing.JTextField jTxtFieldMail;
     private javax.swing.JTextField jTxtFieldNom;
     private javax.swing.JTextField jTxtFieldPrenom;
+    private javax.swing.JComboBox jmbCreateRole;
     private javax.swing.JComboBox listeFiliere;
     private javax.swing.JTextField nouvclasse;
     private javax.swing.JTextField nouvfiliere;
