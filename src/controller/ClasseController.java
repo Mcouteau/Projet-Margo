@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
@@ -125,6 +126,50 @@ public class ClasseController {
         
         
     }
+    
+    public String GetCodeClasseByIndex(int indexClasse){
+        
+        //String columnNames[] = { "Lib Classe"};
+        
+        //defModel.setColumnIdentifiers(columnNames);
+        Vector<String> VectorClasse= new Vector<String>();
+    
+        try {
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+            if (con == null)
+                System.out.println("con classe ko ");
+            else
+                System.out.println("con classe ok ");
+            Statement statement = con.createStatement();
+            if (statement == null)
+                System.out.println("statement classe ko ");
+            else
+                System.out.println("statement classe ok ");
+            
+            //System.out.println("test1 : " + SaisieNom.getText());
+            
+            ResultSet rs = statement.executeQuery("select CODECLASSE from \"CLASSE\" order by LIBCLASSE" );
+            //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
+            //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
+            VectorClasse.addElement( "All");
+            String CodeClasse = "";
+            while (rs.next()) {
+                CodeClasse= rs.getString("CODECLASSE");
+                VectorClasse.addElement( CodeClasse);
+                
+            }
+            rs.close();
+            statement.close();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (String) VectorClasse.get(indexClasse);
+        
+        
+    }
+    
     public int AddClasse(String NouvelleClasse,String Filiere){
         
         int retour;

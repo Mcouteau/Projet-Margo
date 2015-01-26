@@ -28,7 +28,7 @@ import oracle.sql.*;
  *
  * @author Etudiant
  */
-public class EtudiantController {
+public class ProfesseurController {
     
     private String DBURL = "jdbc:oracle:thin:@localhost:1521:XE";
     private String DBUSER = "margo";
@@ -39,8 +39,8 @@ public class EtudiantController {
             
 
     public TableModel Update() {
-        //String columnNames[] = { "ID","Nom","Prenom","Situation","Adresse","Classe"};
-        String columnNames[] = { "Nom","Prenom","Situation","Adresse","Classe"};
+        //String columnNames[] = { "Nom","Prenom","Situation","Adresse"};
+        String columnNames[] = { "Nom","Prenom","Situation","Adresse"};
         DefaultTableModel defModel = new DefaultTableModel();
         defModel.setColumnIdentifiers(columnNames);
         SequenceController seq_classe= new SequenceController();
@@ -61,29 +61,25 @@ public class EtudiantController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Etudiant'" );
-            //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
-            //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
+            //ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Professeur'" );
+            ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION from PERSONNE p  inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Professeur'");
+            
             int idEtudiant =0;
             String nom = "";
             String prenom = "";
             String situation = "";
             String adresse = "";
             String libclasse = "";
-            String mail ="";
-            String login ="";
             while (rs.next()) {
-                idEtudiant= rs.getInt("IDPERS");
+                //idEtudiant= rs.getInt("IDPERS");
                 nom= rs.getString("NOM");
                 prenom= rs.getString("PRENOM");
                 situation= rs.getString("SITUATION");
                 adresse= rs.getString("ADRESSE");
-                libclasse= rs.getString("LIBCLASSE");
-                mail = rs.getString("MAIL");
-                login = rs.getString("LOGIN)");
+                //libclasse= rs.getString("LIBCLASSE");
                 //Etudiant(String nomPersonne, String prenomPersonne, String situationFam, String adress)
-                Etudiant tmpEtu= new Etudiant(idEtudiant,login,nom,prenom,situation,adresse,mail,2);
-                defModel.addRow(tmpEtu.RetourTableau(libclasse) );  
+//                Etudiant tmpEtu= new Etudiant(idEtudiant,nom,prenom,situation,adresse,2);
+                defModel.addRow(new Object [] {nom,prenom,situation,adresse});  
                 
                 
             }
@@ -120,10 +116,12 @@ public class EtudiantController {
             ResultSet rs ;
             //System.out.println("test1 : " + SaisieNom.getText());
             if ( classe.toString() == "All"){
-                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,p.MAIL,p.LOGIN,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Etudiant'");
+                //rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Professeur'");
+                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION from PERSONNE p  inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Professeur'");
             }
             else{
-                String requette="select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,p.MAIL,p.LOGIN,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Etudiant' AND c.CODECLASSE = '"+ classe.toString()+"'";
+                //String requette="select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Professeur' AND c.CODECLASSE = '"+ classe.toString()+"'";
+                String requette="select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION from PERSONNE p  inner join TYPEPERSONNE t on t.ID=p.TYPEPERSONNE  where t.LIBELLE='Professeur' AND c.CODECLASSE = '"+ classe.toString()+"'";
                 rs = statement.executeQuery(requette);
             }
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
@@ -134,8 +132,6 @@ public class EtudiantController {
             String situation = "";
             String adresse = "";
             String libclasse = "";
-            String mail = "";
-            String login="";
             while (rs.next()) {
                 idEtudiant = rs.getInt("IDPERS");
                 nom= rs.getString("NOM");
@@ -143,11 +139,9 @@ public class EtudiantController {
                 situation= rs.getString("SITUATION");
                 adresse= rs.getString("ADRESSE");
                 libclasse= rs.getString("LIBCLASSE");
-                mail = rs.getString("MAIL");
-                login = rs.getString("LOGIN");
                 //Etudiant(String nomPersonne, String prenomPersonne, String situationFam, String adress)
-                Etudiant tmpEtu= new Etudiant(idEtudiant,login,nom,prenom,situation,adresse,mail,2);
-                defModel.addRow(tmpEtu.RetourTableau(libclasse));  
+//                Etudiant tmpEtu= new Etudiant(idEtudiant,nom,prenom,situation,adresse,2);
+ //               defModel.addRow(tmpEtu.RetourTableau(libclasse));  
                 
                 
             }
