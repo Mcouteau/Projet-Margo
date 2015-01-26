@@ -347,6 +347,12 @@ public class UserPanel extends javax.swing.JPanel {
 
         HomeTab.addTab("Gestion des administrateurs", administrateurs);
 
+        account.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                accountFocusGained(evt);
+            }
+        });
+
         jLabelUsername.setText("Nom");
 
         jTxtFieldNom.addActionListener(new java.awt.event.ActionListener() {
@@ -395,19 +401,14 @@ public class UserPanel extends javax.swing.JPanel {
         });
 
         jLblOldMdp.setText("Ancien mot de passe");
-        jLblOldMdp.setOpaque(true);
 
         jLblNewMdp.setText("Nouveau mot de passe");
-        jLblNewMdp.setOpaque(true);
 
-        jPwdFieldOldMdp.setOpaque(true);
         jPwdFieldOldMdp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPwdFieldOldMdpActionPerformed(evt);
             }
         });
-
-        jPwdFieldNewMdp.setOpaque(true);
 
         jBtnValider.setText("Valider changements");
         jBtnValider.addActionListener(new java.awt.event.ActionListener() {
@@ -530,7 +531,7 @@ public class UserPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void HomeTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_HomeTabFocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_HomeTabFocusGained
 
     private void ListClasseBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListClasseBActionPerformed
@@ -617,10 +618,10 @@ public class UserPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jTxtFieldLoginActionPerformed
 
     private void jBtnChangeMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnChangeMdpActionPerformed
-        jPwdFieldOldMdp.setOpaque(true);
-        jLblOldMdp.setOpaque(true);
-        jPwdFieldNewMdp.setOpaque(true);
-        jLblOldMdp.setOpaque(true);
+        jPwdFieldOldMdp.setVisible(true);
+        jLblOldMdp.setVisible(true);
+        jPwdFieldNewMdp.setVisible(true);
+        jLblOldMdp.setVisible(true);
     }//GEN-LAST:event_jBtnChangeMdpActionPerformed
 
     private void jPwdFieldOldMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPwdFieldOldMdpActionPerformed
@@ -634,6 +635,19 @@ public class UserPanel extends javax.swing.JPanel {
     private void jBtnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnValiderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnValiderActionPerformed
+
+    private void accountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_accountFocusGained
+        jPwdFieldOldMdp.setVisible(false);
+        jLblOldMdp.setVisible(false);
+        jPwdFieldNewMdp.setVisible(false);
+        jLblOldMdp.setVisible(false);
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_accountFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

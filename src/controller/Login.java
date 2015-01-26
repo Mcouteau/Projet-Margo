@@ -32,7 +32,7 @@ public class Login {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select p.NOM,p.PRENOM,p.TYPEPERSONNE,p.ADRESSE,p.SITUATION,p.MDP,p.IDPERS from PERSONNE p WHERE p.LOGIN='"+username+"'");
+            ResultSet rs = statement.executeQuery("select p.NOM,p.PRENOM,p.TYPEPERSONNE,p.ADRESSE,p.SITUATION,p.MDP,p.IDPERS,p.MAIL from PERSONNE p WHERE p.LOGIN='"+username+"'");
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
 
@@ -44,6 +44,7 @@ public class Login {
             String situation = rs.getString(5);
             String mdp = rs.getString(6);
             int id = rs.getInt(7);
+            String mail = rs.getString(8);
             
             if(rs.wasNull()) return null;
             rs.close();
@@ -51,7 +52,7 @@ public class Login {
             con.close();
       
         if(password.equals(mdp)){
-                Personne user = new Personne(id,nom,prenom,adresse,situation,role);
+                Personne user = new Personne(id,nom,prenom,adresse,situation,mail,role);
                 return user;
             }else{
                 return null;

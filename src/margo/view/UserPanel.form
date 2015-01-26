@@ -451,6 +451,9 @@
           </Layout>
         </Container>
         <Container class="javax.swing.JPanel" name="account">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="accountFocusGained"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Mon compte">
@@ -664,27 +667,19 @@
             <Component class="javax.swing.JLabel" name="jLblOldMdp">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ancien mot de passe"/>
-                <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLblNewMdp">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nouveau mot de passe"/>
-                <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPwdFieldOldMdp">
-              <Properties>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPwdFieldOldMdpActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPwdFieldNewMdp">
-              <Properties>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jBtnValider">
               <Properties>

@@ -9,18 +9,20 @@ public class Personne {
     protected String prenom;
     protected String situationFamilial;
     protected String adresse;
+    protected String mail;
     protected int type;
     protected int id;
 
     private static String ROLE = "";
 
     // Constructeur
-    public Personne(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,int type) {
+    public Personne(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,String mail,int type) {
         this.nom = nomPersonne;
         this.prenom = prenomPersonne;
         this.situationFamilial = situationFam;
         this.adresse = adress;
         this.type = type;
+        this.mail = mail;
     }
 
     //
@@ -30,6 +32,7 @@ public class Personne {
         this.prenom = "Non defini";
         this.situationFamilial = "Non defini";
         this.adresse = "Non defini";
+        this.mail = "Non defini";
         this.type = 0;
     }
 
@@ -66,6 +69,18 @@ public class Personne {
         this.adresse = adresse;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+    
+    
+    
+    
+    
     /**
      * Get the value of idpers
      *

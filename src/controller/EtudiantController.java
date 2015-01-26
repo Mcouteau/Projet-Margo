@@ -61,7 +61,7 @@ public class EtudiantController {
             
             //System.out.println("test1 : " + SaisieNom.getText());
             
-            ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2" );
+            ResultSet rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE,p.MAIL from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2" );
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
             int idEtudiant =0;
@@ -70,6 +70,7 @@ public class EtudiantController {
             String situation = "";
             String adresse = "";
             String libclasse = "";
+            String mail ="";
             while (rs.next()) {
                 idEtudiant= rs.getInt("IDPERS");
                 nom= rs.getString("NOM");
@@ -77,8 +78,9 @@ public class EtudiantController {
                 situation= rs.getString("SITUATION");
                 adresse= rs.getString("ADRESSE");
                 libclasse= rs.getString("LIBCLASSE");
+                mail = rs.getString("MAIL");
                 //Etudiant(String nomPersonne, String prenomPersonne, String situationFam, String adress)
-                Etudiant tmpEtu= new Etudiant(idEtudiant,nom,prenom,situation,adresse,2);
+                Etudiant tmpEtu= new Etudiant(idEtudiant,nom,prenom,situation,adresse,mail,2);
                 defModel.addRow(tmpEtu.RetourTableau(libclasse) );  
                 
                 
@@ -116,10 +118,10 @@ public class EtudiantController {
             ResultSet rs ;
             //System.out.println("test1 : " + SaisieNom.getText());
             if ( classe.toString() == "All"){
-                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2");
+                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,p.SITUATION,c.LIBCLASSE,p.MAIL from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2");
             }
             else{
-                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2 AND c.LIBCLASSE = '"+ classe.toString()+"'");
+                rs = statement.executeQuery("select p.IDPERS,p.NOM,p.PRENOM,p.ADRESSE,c.LIBCLASSE,p.MAIL from PERSONNE p inner join APPARTIENTCLASSE a on a.IDETUDIANT=p.IDPERS inner join CLASSE c on c.CODECLASSE=a.IDCLASSE where p.TYPEPERSONNE = 2 AND c.LIBCLASSE = '"+ classe.toString()+"'");
             }
             //ResultSet rs = statement.executeQuery("select * from \"classe\" where nom='"+SaisieNom.getText()+"'" );
             //ResultSet rs = statement.executeQuery("SELECT table_name FROM user_tables" );
@@ -129,6 +131,7 @@ public class EtudiantController {
             String situation = "";
             String adresse = "";
             String libclasse = "";
+            String mail = "";
             while (rs.next()) {
                 idEtudiant = rs.getInt("IDPERS");
                 nom= rs.getString("NOM");
@@ -136,8 +139,9 @@ public class EtudiantController {
                 situation= rs.getString("SITUATION");
                 adresse= rs.getString("ADRESSE");
                 libclasse= rs.getString("LIBCLASSE");
+                mail = rs.getString("MAIL");
                 //Etudiant(String nomPersonne, String prenomPersonne, String situationFam, String adress)
-                Etudiant tmpEtu= new Etudiant(idEtudiant,nom,prenom,situation,adresse,2);
+                Etudiant tmpEtu= new Etudiant(idEtudiant,nom,prenom,situation,adresse,mail,2);
                 defModel.addRow(tmpEtu.RetourTableau(libclasse));  
                 
                 
