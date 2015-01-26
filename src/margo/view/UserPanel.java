@@ -8,7 +8,15 @@ package margo.view;
 import controller.ClasseController;
 import controller.EtudiantController;
 import controller.FiliereController;
+import controller.Login;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -121,6 +129,8 @@ public class UserPanel extends javax.swing.JPanel {
         jTxtFieldPrenom = new javax.swing.JTextField();
         jTxtFieldMail = new javax.swing.JTextField();
         jTxtFieldAdresse = new javax.swing.JTextField();
+        jTxtFieldId = new javax.swing.JTextField();
+        jLblMdp = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(500, 500));
 
@@ -186,7 +196,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(filieresLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(LabelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(603, Short.MAX_VALUE))
+                .addContainerGap(653, Short.MAX_VALUE))
             .addGroup(filieresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(MessageAjoutFiliere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -194,7 +204,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(filieresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filieresLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(filieresScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                    .addComponent(filieresScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                     .addGap(57, 57, 57)))
         );
         filieresLayout.setVerticalGroup(
@@ -249,7 +259,7 @@ public class UserPanel extends javax.swing.JPanel {
             classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, classesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nouvclasse, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                .addComponent(nouvclasse, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(listeFiliere, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75)
@@ -258,7 +268,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(classesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, classesLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(classesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                    .addComponent(classesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                     .addGap(57, 57, 57)))
         );
         classesLayout.setVerticalGroup(
@@ -304,7 +314,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGroup(etudiantsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(etudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etudiantsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
+                    .addComponent(etudiantsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
                     .addGroup(etudiantsLayout.createSequentialGroup()
                         .addComponent(ListClasseB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -326,7 +336,7 @@ public class UserPanel extends javax.swing.JPanel {
         professeurs.setLayout(professeursLayout);
         professeursLayout.setHorizontalGroup(
             professeursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGap(0, 851, Short.MAX_VALUE)
         );
         professeursLayout.setVerticalGroup(
             professeursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,7 +349,7 @@ public class UserPanel extends javax.swing.JPanel {
         administrateurs.setLayout(administrateursLayout);
         administrateursLayout.setHorizontalGroup(
             administrateursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGap(0, 851, Short.MAX_VALUE)
         );
         administrateursLayout.setVerticalGroup(
             administrateursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,6 +366,7 @@ public class UserPanel extends javax.swing.JPanel {
 
         jLabelUsername.setText("Nom");
 
+        jTxtFieldNom.setEditable(false);
         jTxtFieldNom.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTxtFieldNom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -372,6 +383,7 @@ public class UserPanel extends javax.swing.JPanel {
         jLabelUserPassword2.setText("Mail");
 
         jCmbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administration", "Etudiant", "Professeur", "Intervenant", "Technicien", "Enfant" }));
+        jCmbRole.setEnabled(false);
         jCmbRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCmbRoleActionPerformed(evt);
@@ -426,11 +438,15 @@ public class UserPanel extends javax.swing.JPanel {
             }
         });
 
+        jTxtFieldPrenom.setEditable(false);
         jTxtFieldPrenom.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jTxtFieldMail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jTxtFieldAdresse.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+
+        jLblMdp.setForeground(new java.awt.Color(255, 0, 0));
+        jLblMdp.setText("Mot de passe erroné");
 
         javax.swing.GroupLayout accountLayout = new javax.swing.GroupLayout(account);
         account.setLayout(accountLayout);
@@ -465,7 +481,9 @@ public class UserPanel extends javax.swing.JPanel {
                                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jCmbRole, 0, 163, Short.MAX_VALUE)
                                     .addComponent(jCmbSituation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jTxtFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTxtFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTxtFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(22, 22, 22)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
@@ -479,17 +497,21 @@ public class UserPanel extends javax.swing.JPanel {
                             .addComponent(jPwdFieldOldMdp)
                             .addComponent(jTxtFieldLogin)
                             .addComponent(jPwdFieldNewMdp, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 16, Short.MAX_VALUE)
-                        .addComponent(jBtnChangeMdp)
-                        .addContainerGap(13, Short.MAX_VALUE))
-                    .addGroup(accountLayout.createSequentialGroup()
-                        .addComponent(jBtnAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBtnChangeMdp)
+                            .addGroup(accountLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLblMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jBtnAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         accountLayout.setVerticalGroup(
             accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(accountLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(9, 9, 9)
+                .addComponent(jTxtFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUsername)
                     .addComponent(jTxtFieldNom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -501,7 +523,8 @@ public class UserPanel extends javax.swing.JPanel {
                     .addComponent(jLabelUserPassword)
                     .addComponent(jLblOldMdp)
                     .addComponent(jPwdFieldOldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(accountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUserPassword1)
@@ -644,7 +667,18 @@ public class UserPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jBtnAnnulerActionPerformed
 
     private void jBtnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnValiderActionPerformed
-        // TODO add your handling code here:
+        String id = jTxtFieldId.getText();
+        String adresse = jTxtFieldAdresse.getText();
+        String mail = jTxtFieldMail.getText();
+        String situation = jCmbSituation.getSelectedItem().toString();
+        String login = jTxtFieldLogin.getText();
+        char[] c = jPwdFieldOldMdp.getPassword();
+        String oldMdp = new String(c);
+        char[] p = jPwdFieldNewMdp.getPassword();
+        String newMdp = new String(p);
+        
+        updatePersonne(id,adresse,mail,situation,login,oldMdp,newMdp);
+        
     }//GEN-LAST:event_jBtnValiderActionPerformed
 
     private void accountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_accountFocusGained
@@ -684,11 +718,13 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelUserPassword1;
     private javax.swing.JLabel jLabelUserPassword2;
     private javax.swing.JLabel jLabelUsername;
+    private javax.swing.JLabel jLblMdp;
     private javax.swing.JLabel jLblNewMdp;
     private javax.swing.JLabel jLblOldMdp;
     private javax.swing.JPasswordField jPwdFieldNewMdp;
     private javax.swing.JPasswordField jPwdFieldOldMdp;
     private javax.swing.JTextField jTxtFieldAdresse;
+    private javax.swing.JTextField jTxtFieldId;
     private javax.swing.JTextField jTxtFieldLogin;
     private javax.swing.JTextField jTxtFieldMail;
     private javax.swing.JTextField jTxtFieldNom;
@@ -704,7 +740,10 @@ public class UserPanel extends javax.swing.JPanel {
         jLblOldMdp.setVisible(false);
         jPwdFieldNewMdp.setVisible(false);
         jLblNewMdp.setVisible(false);
+        jTxtFieldId.setVisible(false);
+        jLblMdp.setVisible(false);
         
+        jTxtFieldId.setText(""+user.getId());
         jTxtFieldNom.setText(user.getNom());
         jTxtFieldPrenom.setText(user.getPrenom());
         jTxtFieldAdresse.setText(user.getAdresse());
@@ -721,6 +760,48 @@ public class UserPanel extends javax.swing.JPanel {
                 break;
             default:
                 jCmbSituation.setSelectedIndex(2);
+        }
+    
+    }
+
+    private void updatePersonne(String id, String adresse, String mail, String situation, String login, String oldMdp, String newMdp) {
+         try {  
+             
+             String info = "La modification des données a été prise en compte"; 
+         
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "margo", "margo");
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery("select p.ADRESSE,p.SITUATION,p.MDP,p.MAIL,p.LOGIN from PERSONNE p WHERE p.ID="+id+"");
+            
+            String newAdresse = rs.getString(1);
+            String newSituation = rs.getString(2);
+            String mdp = rs.getString(3);
+            String newMail = rs.getString(4);
+            String newLogin = rs.getString(5);
+            
+            if (mdp.equals(oldMdp)){
+                jLblMdp.setVisible(false);
+                if(!newMdp.equals("")) mdp = newMdp;
+                
+            }else{
+                jLblMdp.setVisible(true);
+                info += "\n Le mot de passe n'a pas été changé.";
+            }
+            if(!adresse.equals("")) newAdresse = adresse;
+            if(!situation.equals("")) newSituation = situation;
+            if(!login.equals("")) newLogin = login;
+            if(!mail.equals("")) newMail = mail;
+            
+            statement.executeUpdate("UPDATE PERSONNE SET ADRESSE='"+newAdresse+"',SITUATION='"+newSituation+"',MDP='"+mdp+"',MAIL='"+newMail+"',LOGIN='"+newLogin+"'");
+            
+            
+
+            javax.swing.JOptionPane.showMessageDialog(null,info); 
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

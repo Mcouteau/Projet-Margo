@@ -90,7 +90,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Component id="LabelInfo" min="-2" pref="179" max="-2" attributes="0"/>
-                      <EmptySpace pref="603" max="32767" attributes="0"/>
+                      <EmptySpace pref="653" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -100,7 +100,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="filieresScroll" pref="734" max="32767" attributes="0"/>
+                          <Component id="filieresScroll" pref="788" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -200,7 +200,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nouvclasse" pref="273" max="32767" attributes="0"/>
+                      <Component id="nouvclasse" pref="330" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="listeFiliere" min="-2" pref="333" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
@@ -210,7 +210,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="classesScroll" pref="734" max="32767" attributes="0"/>
+                          <Component id="classesScroll" pref="788" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -317,7 +317,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="etudiantsScroll" alignment="0" pref="781" max="32767" attributes="0"/>
+                          <Component id="etudiantsScroll" alignment="0" pref="839" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="ListClasseB" min="-2" pref="131" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -418,7 +418,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="801" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="851" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -440,7 +440,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="801" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="851" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -503,7 +503,10 @@
                                           <Component id="jCmbSituation" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="jTxtFieldNom" min="-2" pref="163" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="jTxtFieldId" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTxtFieldNom" min="-2" pref="163" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -522,22 +525,27 @@
                                   <Component id="jTxtFieldLogin" max="32767" attributes="0"/>
                                   <Component id="jPwdFieldNewMdp" pref="93" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" pref="16" max="32767" attributes="0"/>
-                              <Component id="jBtnChangeMdp" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="13" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jBtnChangeMdp" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="jLblMdp" min="-2" pref="149" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jBtnAnnuler" min="-2" pref="137" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jBtnAnnuler" min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="61" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Component id="jTxtFieldId" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTxtFieldNom" alignment="3" max="-2" attributes="0"/>
@@ -551,6 +559,7 @@
                           <Component id="jLblOldMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jPwdFieldOldMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTxtFieldPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblMdp" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -589,6 +598,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTxtFieldNom">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
               <Events>
@@ -627,6 +637,7 @@
                     <StringItem index="5" value="Enfant"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCmbRoleActionPerformed"/>
@@ -704,6 +715,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTxtFieldPrenom">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
             </Component>
@@ -715,6 +727,16 @@
             <Component class="javax.swing.JTextField" name="jTxtFieldAdresse">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTxtFieldId">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLblMdp">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Mot de passe erron&#xe9;"/>
               </Properties>
             </Component>
           </SubComponents>
