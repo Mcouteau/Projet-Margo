@@ -146,22 +146,23 @@ public class UserPanel extends javax.swing.JPanel {
         Create = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
+        jTxtCreateMdp = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTxtCreateAdresse = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTxtCreateNom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTxtCreatePrenom = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTxtCreateAdresse = new javax.swing.JTextField();
+        jTxtCreateLogin = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTxtCreateMail = new javax.swing.JTextField();
         jCmbCreateSituation = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jmbCreateRole = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setMinimumSize(new java.awt.Dimension(500, 500));
@@ -640,9 +641,9 @@ public class UserPanel extends javax.swing.JPanel {
 
         jLabel8.setText("Mot de passe :");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        jTxtCreateAdresse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                jTxtCreateAdresseActionPerformed(evt);
             }
         });
 
@@ -672,6 +673,8 @@ public class UserPanel extends javax.swing.JPanel {
 
         jmbCreateRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton1.setText("Valider");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -691,7 +694,7 @@ public class UserPanel extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(135, 135, 135)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                                .addComponent(jTxtCreateAdresse, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                                 .addComponent(jTxtCreatePrenom, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTxtCreateNom, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -704,14 +707,17 @@ public class UserPanel extends javax.swing.JPanel {
                             .addComponent(jmbCreateRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCmbCreateSituation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(150, 150, 150)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTxtCreateAdresse)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTxtCreateLogin)
+                            .addComponent(jTxtCreateMdp, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,17 +731,17 @@ public class UserPanel extends javax.swing.JPanel {
                     .addComponent(jTxtCreatePrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7)
-                    .addComponent(jTxtCreateAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtCreateLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtCreateAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxtCreateMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtCreateMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCmbCreateSituation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -743,11 +749,12 @@ public class UserPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jmbCreateRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addContainerGap(214, Short.MAX_VALUE))
+                    .addComponent(jLabel10)
+                    .addComponent(jButton1))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("Personne", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -760,7 +767,7 @@ public class UserPanel extends javax.swing.JPanel {
             .addGap(0, 467, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        jTabbedPane1.addTab("Autres", jPanel2);
 
         javax.swing.GroupLayout CreateLayout = new javax.swing.GroupLayout(Create);
         Create.setLayout(CreateLayout);
@@ -930,9 +937,9 @@ public class UserPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtCreateNomActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jTxtCreateAdresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCreateAdresseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jTxtCreateAdresseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -963,6 +970,7 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JButton jBtnAnnuler;
     private javax.swing.JButton jBtnChangeMdp;
     private javax.swing.JButton jBtnValider;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jCmbCreateSituation;
     private javax.swing.JComboBox jCmbRole;
     private javax.swing.JComboBox jCmbSituation;
@@ -989,10 +997,10 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField jPwdFieldNewMdp;
     private javax.swing.JPasswordField jPwdFieldOldMdp;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTxtCreateAdresse;
+    private javax.swing.JTextField jTxtCreateLogin;
     private javax.swing.JTextField jTxtCreateMail;
+    private javax.swing.JTextField jTxtCreateMdp;
     private javax.swing.JTextField jTxtCreateNom;
     private javax.swing.JTextField jTxtCreatePrenom;
     private javax.swing.JTextField jTxtFieldAdresse;
