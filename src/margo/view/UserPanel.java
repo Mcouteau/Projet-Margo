@@ -823,7 +823,7 @@ public class UserPanel extends javax.swing.JPanel {
         jLblOldMdp.setVisible(false);
         jPwdFieldNewMdp.setVisible(false);
         jLblNewMdp.setVisible(false);
-        //        jTxtFieldId.setVisible(false);
+        jTxtFieldId.setVisible(false);
         jLblMdp.setVisible(false);
         
         jTxtFieldId.setText(Integer.toString(user.getId()));
