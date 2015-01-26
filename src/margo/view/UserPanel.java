@@ -672,6 +672,11 @@ public class UserPanel extends javax.swing.JPanel {
         jmbCreateRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setText("Valider");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -939,6 +944,46 @@ public class UserPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtCreateAdresseActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        boolean verifie = true;
+        if(jTxtCreateNom.getText().equals("")){
+            jTxtCreateNom.setBackground(Color.gray);
+            verifie = false;
+        }
+        if(jTxtCreatePrenom.getText().equals("")){
+            jTxtCreatePrenom.setBackground(Color.gray);
+            verifie = false;
+        }
+        if(jTxtCreateMail.getText().equals("")){
+            jTxtCreateMail.setBackground(Color.gray);
+            verifie = false;
+        }
+        if(jTxtCreateLogin.getText().equals("")){
+            jTxtCreateLogin.setBackground(Color.gray);
+            verifie = false;
+        }
+        if(jTxtCreateMdp.getText().equals("")){
+            jTxtCreateMdp.setBackground(Color.gray);
+            verifie = false;
+        }
+        
+        if(!verifie){
+            String info = "Certains champs nécessaires ne sont pas renseignés";
+            javax.swing.JOptionPane.showMessageDialog(null,info);
+        }else{
+            String nom = jTxtCreateNom.getText();
+            String prenom = jTxtCreatePrenom.getText();
+            String adresse = jTxtCreateAdresse.getText();
+            String mail = jTxtCreateMail.getText();
+            String login = jTxtCreateLogin.getText();
+            String mdp = jTxtCreateMdp.getText();
+            String situation = jCmbSituation.getSelectedItem().toString();
+            int role = jCmbSituation.getSelectedIndex()+1;
+            enregistrerPersonne(nom,prenom,adresse,mail,login,mdp,situation,role);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Accueil;
@@ -1052,7 +1097,6 @@ public class UserPanel extends javax.swing.JPanel {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "margo", "margo");
             Statement statement = con.createStatement();
-            String requete = "select p.ADRESSE,p.SITUATION,p.MDP,p.MAIL,p.LOGIN from PERSONNE p WHERE p.IDPERS="+id;
             ResultSet rs = statement.executeQuery("select p.ADRESSE,p.SITUATION,p.MDP,p.MAIL,p.LOGIN from PERSONNE p WHERE p.IDPERS="+id);
             
             rs.next();
@@ -1081,6 +1125,27 @@ public class UserPanel extends javax.swing.JPanel {
             javax.swing.JOptionPane.showMessageDialog(null,info); 
             
         } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void enregistrerPersonne(String nom, String prenom, String adresse, String mail, String login, String mdp, String situation, int role) {
+        try {  
+
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "margo", "margo");
+            Statement statement = con.createStatement();
+            
+            ResultSet rs = statement.executeQuery("select MAX(IDPERS)FROM PERSONNE");
+            
+            rs.next();
+            
+            int id = rs.getInt(1)+1;
+            
+            statement.executeUpdate("INSERT INTO PERSONNE(IDPERS,NOM,PRENOM,SITUATION,ADRESSE,TYPEPERSONNE,MDP,LOGIN,MAIL) VALUES ("+id+",'"+nom+"','"+prenom+"','"+situation+"','"+adresse+"',"+role+",'"+mdp+"','"+login+"','"+mail+"'");
+            String info = "Votre enregistrement à été effectué.";
+            javax.swing.JOptionPane.showMessageDialog(null,info);
+            } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
