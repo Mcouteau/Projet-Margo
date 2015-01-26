@@ -761,7 +761,6 @@ public class UserPanel extends javax.swing.JPanel {
             default:
                 jCmbSituation.setSelectedIndex(2);
         }
-    
     }
 
     private void updatePersonne(String id, String adresse, String mail, String situation, String login, String oldMdp, String newMdp) {
@@ -772,7 +771,9 @@ public class UserPanel extends javax.swing.JPanel {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "margo", "margo");
             Statement statement = con.createStatement();
-            ResultSet rs = statement.executeQuery("select p.ADRESSE,p.SITUATION,p.MDP,p.MAIL,p.LOGIN from PERSONNE p WHERE p.ID="+id+"");
+            ResultSet rs = statement.executeQuery("select p.ADRESSE,p.SITUATION,p.MDP,p.MAIL,p.LOGIN from PERSONNE p WHERE p.IDPERS="+id);
+            
+            rs.next();
             
             String newAdresse = rs.getString(1);
             String newSituation = rs.getString(2);
@@ -794,11 +795,8 @@ public class UserPanel extends javax.swing.JPanel {
             if(!mail.equals("")) newMail = mail;
             
             statement.executeUpdate("UPDATE PERSONNE SET ADRESSE='"+newAdresse+"',SITUATION='"+newSituation+"',MDP='"+mdp+"',MAIL='"+newMail+"',LOGIN='"+newLogin+"'");
-            
-            
 
             javax.swing.JOptionPane.showMessageDialog(null,info); 
-            
             
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
