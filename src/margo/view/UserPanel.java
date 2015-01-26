@@ -370,7 +370,7 @@ public class UserPanel extends javax.swing.JPanel {
 
         jLabelUserPassword2.setText("Mail");
 
-        jCmbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administration", "Professeur", "Etudiant", "Technicien", "Intervenant" }));
+        jCmbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administration", "Etudiant", "Professeur", "Intervenant", "Technicien", "Enfant" }));
         jCmbRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCmbRoleActionPerformed(evt);
@@ -379,7 +379,7 @@ public class UserPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Rôle");
 
-        jCmbSituation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Celibataire", "Marie" }));
+        jCmbSituation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CELIBATAIRE", "MARIE", "NON DEFINI" }));
         jCmbSituation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCmbSituationActionPerformed(evt);
@@ -698,6 +698,18 @@ public class UserPanel extends javax.swing.JPanel {
         jTxtFieldPrenom.setText(user.getPrenom());
         jTxtFieldAdresse.setText(user.getAdresse());
         jTxtFieldMail.setText(user.getMail());
+        jTxtFieldLogin.setText(user.getLogin());
+        jCmbRole.setSelectedIndex(user.getType());
         
+        switch(user.getSituationFamilial()){
+            case "CELIBATAIRE":
+                jCmbSituation.setSelectedIndex(1);
+                break;
+            case "MARIE":
+                jCmbSituation.setSelectedIndex(2);
+                break;
+            default:
+                jCmbSituation.setSelectedIndex(3);
+        }
     }
 }

@@ -615,12 +615,13 @@
             <Component class="javax.swing.JComboBox" name="jCmbRole">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
+                  <StringArray count="6">
                     <StringItem index="0" value="Administration"/>
-                    <StringItem index="1" value="Professeur"/>
-                    <StringItem index="2" value="Etudiant"/>
-                    <StringItem index="3" value="Technicien"/>
-                    <StringItem index="4" value="Intervenant"/>
+                    <StringItem index="1" value="Etudiant"/>
+                    <StringItem index="2" value="Professeur"/>
+                    <StringItem index="3" value="Intervenant"/>
+                    <StringItem index="4" value="Technicien"/>
+                    <StringItem index="5" value="Enfant"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -636,9 +637,10 @@
             <Component class="javax.swing.JComboBox" name="jCmbSituation">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="Celibataire"/>
-                    <StringItem index="1" value="Marie"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value="CELIBATAIRE"/>
+                    <StringItem index="1" value="MARIE"/>
+                    <StringItem index="2" value="NON DEFINI"/>
                   </StringArray>
                 </Property>
               </Properties>
