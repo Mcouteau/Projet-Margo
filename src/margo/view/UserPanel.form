@@ -466,7 +466,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -485,21 +485,27 @@
                                       </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTxtFieldPrenom" alignment="1" pref="163" max="32767" attributes="0"/>
+                                  <Component id="jTxtFieldMail" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jTxtFieldAdresse" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jCmbRole" pref="163" max="32767" attributes="0"/>
+                                          <Component id="jCmbSituation" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jTxtFieldNom" min="-2" pref="163" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                              <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jCmbSituation" max="32767" attributes="0"/>
-                          <Component id="jCmbRole" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTxtFieldNom" alignment="0" pref="165" max="32767" attributes="0"/>
-                          <Component id="jTxtFieldPrenom" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTxtFieldAdresse" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jTxtFieldMail" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -516,9 +522,9 @@
                                   <Component id="jTxtFieldLogin" max="32767" attributes="0"/>
                                   <Component id="jPwdFieldNewMdp" pref="93" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" pref="18" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" pref="16" max="32767" attributes="0"/>
                               <Component id="jBtnChangeMdp" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace pref="13" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jBtnAnnuler" min="-2" pref="137" max="-2" attributes="0"/>
@@ -534,29 +540,29 @@
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxtFieldNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFieldNom" alignment="3" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTxtFieldLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jBtnChangeMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTxtFieldPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelUserPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLblOldMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jPwdFieldOldMdp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFieldPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTxtFieldAdresse" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelUserPassword1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLblNewMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jPwdFieldNewMdp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFieldAdresse" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTxtFieldMail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelUserPassword2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFieldMail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -582,6 +588,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTxtFieldNom">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtFieldNomActionPerformed"/>
               </Events>
@@ -590,8 +599,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="jTxtFieldPrenom">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelEmail">
               <Properties>
@@ -603,14 +610,10 @@
                 <Property name="text" type="java.lang.String" value="Adresse"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jTxtFieldAdresse">
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabelUserPassword2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mail"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="jTxtFieldMail">
             </Component>
             <Component class="javax.swing.JComboBox" name="jCmbRole">
               <Properties>
@@ -698,6 +701,21 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAnnulerActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTxtFieldPrenom">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTxtFieldMail">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTxtFieldAdresse">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

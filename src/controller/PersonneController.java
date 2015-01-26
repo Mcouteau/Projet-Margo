@@ -10,8 +10,6 @@ package controller;
  * @author Etudiant
  */
 
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -35,9 +33,6 @@ public class PersonneController {
     private String DBUSER = "margo";
     private String DBPASS = "margo";  
     //private Classe classeTmp;
-    
-    
-            
 
     public TableModel Update() {
         String columnNames[] = { "ID","Nom","Prenom","Situation","Adresse","Classe"};
