@@ -382,7 +382,7 @@ public class UserPanel extends javax.swing.JPanel {
                 .addGap(98, 98, 98))
         );
 
-        HomeTab.addTab("Gestion des Etudiants", professeurs);
+        HomeTab.addTab("Gestion des Professeurs", professeurs);
 
         administratifsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -423,7 +423,7 @@ public class UserPanel extends javax.swing.JPanel {
                 .addGap(98, 98, 98))
         );
 
-        HomeTab.addTab("Gestion des Etudiants", administratifs);
+        HomeTab.addTab("Gestion des admins", administratifs);
 
         account.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
