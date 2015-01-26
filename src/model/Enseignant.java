@@ -8,8 +8,8 @@ public class Enseignant extends Intervenant {
 
 
 	// Constructeur
-		public Enseignant(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,String mail,int type,String diplom) {
-			super(id,nomPersonne, prenomPersonne, situationFam, adress,mail,type);
+		public Enseignant(int id,String login,String nomPersonne, String prenomPersonne, String situationFam, String adress,String mail,int type,String diplom) {
+			super(id,login,nomPersonne, prenomPersonne, situationFam, adress,mail,type);
 			this.diplome=diplom;
 		}
 	

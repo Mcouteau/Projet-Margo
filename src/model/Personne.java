@@ -10,13 +10,15 @@ public class Personne {
     protected String situationFamilial;
     protected String adresse;
     protected String mail;
+    protected String login;
     protected int type;
     protected int id;
 
     private static String ROLE = "";
 
     // Constructeur
-    public Personne(int id,String nomPersonne, String prenomPersonne, String situationFam, String adress,String mail,int type) {
+    public Personne(int id,String login,String nomPersonne, String prenomPersonne, String situationFam, String adress,String mail,int type) {
+        this.login = login;
         this.nom = nomPersonne;
         this.prenom = prenomPersonne;
         this.situationFamilial = situationFam;
@@ -34,6 +36,7 @@ public class Personne {
         this.adresse = "Non defini";
         this.mail = "Non defini";
         this.type = 0;
+        this.login = "Non defini";
     }
 
     // Getteurs et Setteurs
@@ -75,6 +78,14 @@ public class Personne {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
     
     

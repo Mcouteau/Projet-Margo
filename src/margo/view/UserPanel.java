@@ -64,6 +64,7 @@ public class UserPanel extends javax.swing.JPanel {
     EtudiantController tmpEtudiant=new EtudiantController() ;
     etudiantsTable.setModel(tmpEtudiant.Update(ListClasseB.getSelectedItem().toString()));
     
+    initialiseAccountpage(user);
   }
   
 
@@ -642,11 +643,6 @@ public class UserPanel extends javax.swing.JPanel {
         jPwdFieldNewMdp.setVisible(false);
         jLblOldMdp.setVisible(false);
         
-        
-        
-        
-        
-        
     }//GEN-LAST:event_accountFocusGained
 
 
@@ -696,4 +692,12 @@ public class UserPanel extends javax.swing.JPanel {
     private javax.swing.JTextField nouvfiliere;
     private javax.swing.JPanel professeurs;
     // End of variables declaration//GEN-END:variables
+
+    private void initialiseAccountpage(Personne user) {
+        jTxtFieldNom.setText(user.getNom());
+        jTxtFieldPrenom.setText(user.getPrenom());
+        jTxtFieldAdresse.setText(user.getAdresse());
+        jTxtFieldMail.setText(user.getMail());
+        
+    }
 }
