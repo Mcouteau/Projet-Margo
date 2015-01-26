@@ -18,6 +18,7 @@ public class Personne {
 
     // Constructeur
     public Personne(int id,String login,String nomPersonne, String prenomPersonne, String situationFam, String adress,String mail,int type) {
+        this.id = id;
         this.login = login;
         this.nom = nomPersonne;
         this.prenom = prenomPersonne;

@@ -667,7 +667,7 @@ public class UserPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jBtnAnnulerActionPerformed
 
     private void jBtnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnValiderActionPerformed
-        String id = jTxtFieldId.getText();
+        int id = Integer.parseInt(jTxtFieldId.getText());
         String adresse = jTxtFieldAdresse.getText();
         String mail = jTxtFieldMail.getText();
         String situation = jCmbSituation.getSelectedItem().toString();
@@ -740,10 +740,10 @@ public class UserPanel extends javax.swing.JPanel {
         jLblOldMdp.setVisible(false);
         jPwdFieldNewMdp.setVisible(false);
         jLblNewMdp.setVisible(false);
-        jTxtFieldId.setVisible(false);
+        //        jTxtFieldId.setVisible(false);
         jLblMdp.setVisible(false);
         
-        jTxtFieldId.setText(""+user.getId());
+        jTxtFieldId.setText(Integer.toString(user.getId()));
         jTxtFieldNom.setText(user.getNom());
         jTxtFieldPrenom.setText(user.getPrenom());
         jTxtFieldAdresse.setText(user.getAdresse());
@@ -763,7 +763,7 @@ public class UserPanel extends javax.swing.JPanel {
         }
     }
 
-    private void updatePersonne(String id, String adresse, String mail, String situation, String login, String oldMdp, String newMdp) {
+    private void updatePersonne(int id, String adresse, String mail, String situation, String login, String oldMdp, String newMdp) {
          try {  
              
              String info = "La modification des données a été prise en compte"; 
@@ -771,17 +771,18 @@ public class UserPanel extends javax.swing.JPanel {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "margo", "margo");
             Statement statement = con.createStatement();
+            String requete = "select p.ADRESSE,p.SITUATION,p.MDP,p.MAIL,p.LOGIN from PERSONNE p WHERE p.IDPERS="+id;
             ResultSet rs = statement.executeQuery("select p.ADRESSE,p.SITUATION,p.MDP,p.MAIL,p.LOGIN from PERSONNE p WHERE p.IDPERS="+id);
             
             rs.next();
             
-            String newAdresse = rs.getString(1);
-            String newSituation = rs.getString(2);
-            String mdp = rs.getString(3);
-            String newMail = rs.getString(4);
-            String newLogin = rs.getString(5);
+            String newAdresse = rs.getString("ADRESSE");
+            String newSituation = rs.getString("SITUATION");
+            String mdp = rs.getString("MDP");
+            String newMail = rs.getString("MAIL");
+            String newLogin = rs.getString("LOGIN");
             
-            if (mdp.equals(oldMdp)){
+            if (mdp.equals(oldMdp)||oldMdp.equals("")){
                 jLblMdp.setVisible(false);
                 if(!newMdp.equals("")) mdp = newMdp;
                 
@@ -794,7 +795,7 @@ public class UserPanel extends javax.swing.JPanel {
             if(!login.equals("")) newLogin = login;
             if(!mail.equals("")) newMail = mail;
             
-            statement.executeUpdate("UPDATE PERSONNE SET ADRESSE='"+newAdresse+"',SITUATION='"+newSituation+"',MDP='"+mdp+"',MAIL='"+newMail+"',LOGIN='"+newLogin+"'");
+            statement.executeUpdate("UPDATE PERSONNE SET ADRESSE='"+newAdresse+"',SITUATION='"+newSituation+"',MDP='"+mdp+"',MAIL='"+newMail+"',LOGIN='"+newLogin+"' WHERE IDPERS="+id);
 
             javax.swing.JOptionPane.showMessageDialog(null,info); 
             
