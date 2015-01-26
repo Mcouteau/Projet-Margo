@@ -58,7 +58,10 @@ public class Personne {
     }
 
     public String getSituationFamilial() {
-        return situationFamilial;
+        if (situationFamilial==null)
+            return "NULL";
+        else  
+            return situationFamilial;
     }
 
     public void setSituationFamilial(String situationFamilial) {
